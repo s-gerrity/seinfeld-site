@@ -1,8 +1,8 @@
-## Seinfeld Fan Site
+## The Ultimate Seinfeld Experience
 
 ### Overview
 
-Seinfeld fan site where visitors can interact via bot with one of four characters from the show. Features a countdown to Festivus - December 23rd!
+The Ultimate Seinfeld Experience is a fan site where visitors can interact via bot with one of four characters from the show. Features a countdown to Festivus - December 23rd!
 
 ### Technologies required (besides typical Hackbright tech stack)
 
@@ -17,9 +17,9 @@ Seinfeld fan site where visitors can interact via bot with one of four character
 
 #### MVP
 
-- Interactive bot. Choose from 4 characters to chat with. Say anything you want and receive a response (quote from the show).
+- Visitors choose from 4 characters to chat with. Give input and receive a response (quote from the show).
 
-- Festivus countdown. Festivus is a secular holiday as an alternative to the pressures and commercialism of the Christmas season, celebrated every year on December 23rd. Get ready.
+- Festivus countdown. Show days until the holiday. (Festivus is a secular holiday as an alternative to the pressures and commercialism of the Christmas season, celebrated every year on December 23rd. Get ready.)
 
 #### 2.0
 

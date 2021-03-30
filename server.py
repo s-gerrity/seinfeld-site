@@ -1,11 +1,13 @@
 """Server for The Ultimate Seinfeld Experience."""
 
-# Don't need Flask just yet
-# from flask import (Flask, render_template, request)
+
+from flask import (Flask, render_template, request)
 from model import connect_to_db
 
 app = Flask(__name__)
 # What is the app secret key? Do I need it?
+    # secret keys are for sessions, might not need on this project
+    # this is usually generated and imported, not shared on github
 # app.secret_key = "dev"
 
 
