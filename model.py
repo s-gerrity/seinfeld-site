@@ -1,4 +1,4 @@
-"""Models for HB Project: Seinfeld Fan Site"""
+"""Models for The Ultimate Seinfeld Experience."""
 
 from flask_sqlalchemy import flask_sqlalchemy
 
