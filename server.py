@@ -3,19 +3,22 @@
 
 from flask import (Flask, render_template, request)
 from model import connect_to_db
+import arrow
 
 app = Flask(__name__)
-# What is the app secret key? Do I need it?
-    # secret keys are for sessions, might not need on this project
-    # this is usually generated and imported, not shared on github
-# app.secret_key = "dev"
 
 
 @app.route ('/')
 def homepage():
-    """Go to homepage."""
+    """Go to homepage. Loads countdown to Festivus."""
 
-    return render_template('homepage.html')
+    todays_date = arrow.now('US/Pacific')
+    festivus_date = arrow.get(2021, 12, 23)
+    days_left = festivus_date - todays_date
+    
+    return render_template('homepage.html',
+                            days_left=days_left.days)
+
 
 
 if __name__ == '__main__':

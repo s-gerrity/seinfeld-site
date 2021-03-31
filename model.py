@@ -1,10 +1,10 @@
 """Models for The Ultimate Seinfeld Experience."""
 
 from flask_sqlalchemy import SQLAlchemy
+import arrow
 
 db = SQLAlchemy()
 
-# route needs to be defined. XXXX placeholder. db named ultimate 
 def connect_to_db(flask_app, db_uri='postgresql:///ultimate', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
