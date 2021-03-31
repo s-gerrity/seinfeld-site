@@ -26,7 +26,7 @@ class Bot(db.Model):
     bot_name = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Bot id={self.id} bot_name={self.bot_name} I thought it was a booger but its snot.>'
+        return f'<Bot id={self.id} bot_name={self.bot_name} These pretzels are makin me thirsty.>'
 
 class BotResponse(db.Model):
     """Bot Responses table class."""

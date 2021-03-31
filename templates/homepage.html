@@ -8,10 +8,10 @@
 </header>
 
 <body>
-    <!-- Routes have not been made yet -->
     <nav class="nav-bar">
         <ol>
-            
+            <!-- Routes have not been made yet -->
+            <!-- the first link does not work for unknown reasons -->
             <li><a href="/bot"></a>Character Bot</a></li>
             <li><a href="/where-are-they-now">Where Are They Now?</a></li>
             <li><a href="/clips">Non-stop Seinfeld Clips</a></li>
@@ -26,10 +26,23 @@
     <div class="bot-chat">
         <h3>Chat with a Seinfeld character bot!</h3>
             <p>Pick a character from the show to have an instant-message conversation with.</p>
-        <form>
+                <select name="character-bot">
+                    <option value="jerry">Jerry</option>
+                    <option value="elaine">Elaine</option>
+                    <option value="kramer">Kramer</option>
+                    <option value="george">George</option>
+                </select>
+                    <br>
+                        <p>Make up a username for your chat.</p>
+                            <form> 
+                                <label for="username">Username:</label>
+                                <input type="username" id="username" name ="username" placeholder="mrskramer">
 
-        </form>
-
+                            </form>    
+                                <br>
+                <textarea rows="3" cols="30" name="user-input">
+                </textarea>
+                <!-- next area should print the users input and show the bots response-->
     </div>
 
 </body>

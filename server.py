@@ -20,6 +20,13 @@ def homepage():
                             days_left=days_left.days)
 
 
+# when a user submits a textarea input on homepage
+def open_seinfeld_quotes(filename):
+    """Access quotes from a csv file."""
+
+    file = open(filename)
+    read_file = file.read()
+
 
 if __name__ == '__main__':
     connect_to_db(app)
