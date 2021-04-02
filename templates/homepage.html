@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>The Ultimate Seinfeld Experience</title>
+
+   
     </head>
 <header class="page-header">
     <h1>The Ultimate Seinfeld Experience </h1>
@@ -10,47 +12,58 @@
 <body>
     <nav class="nav-bar">
         <ol>
-            <!-- Routes have not been made yet -->
-            <!-- the first link does not work for unknown reasons -->
-            <li><a href="/bot"></a>Character Bot</a></li>
-            <li><a href="/where-are-they-now">Where Are They Now?</a></li>
-            <li><a href="/clips">Non-stop Seinfeld Clips</a></li>
+            <li><a href="#festivus-countdown">Festivus Countdown</a></li>
+            <li><a href="#bot-chat">Character Bot</a></li>
+            <li><a href="#watn-header">Where Are They Now?</a></li>
             <li><a href="food-locator">SeinFood Locator</a></li>
         </ol>
     </nav>
     <div class="countdown">
-        <h3>Festivus is December 23rd!</h3>
+        <h3 id="festivus-countdown">Festivus is December 23rd!</h3>
             <p>Only<span id="days-left"> {{  days_left  }}</span> days until it's here <em>– mark your calendar.</em></p>
     </div>
 
     <div class="bot-chat">
-        <h3>Chat with a Seinfeld character bot!</h3>
+        <h3 id="bot-chat">Chat with a Seinfeld character bot!</h3>
             <p>Pick a character from the show to have an instant-message conversation with.</p>
+            <form action="/">     
                 <select name="character-bot">
                     <option value="jerry">Jerry</option>
                     <option value="elaine">Elaine</option>
                     <option value="kramer">Kramer</option>
                     <option value="george">George</option>
-                </select>
-                    <br>
-                        <p>Make up a username for your chat.</p>
-                            <form> 
-                                <label for="username">Username:</label>
-                                <input type="username" id="username" name ="username" placeholder="mrskramer">
-
-                            </form>    
-                                <br>
-                <textarea rows="3" cols="30" name="user-input">
-                </textarea>
+                </select><br>
+                <p>Make up a username for your chat.</p>
+                    <label for="username">Username:</label>
+                    <input type="username" id="username" name ="username" placeholder="mrskramer"><br><br>
+                        <textarea rows="3" cols="30" name="user-input" id=#user-input>
+                        </textarea><br>
+                            <input type="submit" value="submit" id="button"><br>
+            </form>        
                 <!-- next area should print the users input and show the bots response-->
-    </div>
-
+            <div class="transcript">
+                <h4>Message log:</h4><br>
+                <p id="user-message">  {{ username }}: {{ message }} </p>
+            </div>
+                <!-- move on to other features -->
+            <div class="watn">
+                <h3 id="watn-header">Where Are They Now?</h3>
+                <p>Check out what some of the actors on the show are up to lately.</p>
+                <a href="https://twitter.com/jerryseinfeld">Jerry Seinfeld</a><br>
+                <a href="https://twitter.com/officialjld?lang=en">Julia Louis-Dreyfus</a><br>
+                <a href="https://twitter.com/IJasonAlexander?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Jason Alexander</a><br>
+                <a href="https://twitter.com/modern_seinfeld?lang=en">Modern Seinfeld: A take on how episodes might have gone in the 2010's</a><br>
+            </div>
+     
+ <script src="/static/js/action.js"></script>
 </body>
 
 <footer>
-    <p>You are the visitor to the site!</p>
+    <p>You are the {{ counter }} visitor to the site!</p>
+    <!-- found hit counter online -->
+    <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits">
     <p>Sam Gerrity Industries 2021</p>
 </footer>
-
+ 
 
 </html>

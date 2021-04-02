@@ -43,6 +43,15 @@ class BotResponse(db.Model):
 
     bot = db.relationship('Bot', backref='bot_responses')
 
+
+    def __init__(self, bot_id, response):
+        """Create a response."""
+
+        self.bot_id = bot_id
+        self.response = response
+
+
+
     def __repr__(self):
         return f'<bot_response id={self.response_id}>'  
 
