@@ -10,10 +10,10 @@ def get_responses():
     """Load response quotes from dataset into database."""
 
     # need to load all quotes into the db
-    with open("data/bot_responses.tsv") as response_data:
+    with open("data/test_responses.tsv") as response_data:
         for i, line in enumerate(response_data):
-            if i >= 10: # limit the number of rows read
-                break
+            # if i >= 7000: # limit the number of rows read
+            #     break
             print(line)
             bot_id,response=(line.split("#"))
             # use split delimiter 

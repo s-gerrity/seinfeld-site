@@ -1,12 +1,15 @@
 """Server for The Ultimate Seinfeld Experience."""
 
 
-from flask import (Flask, render_template, request)
-from model import connect_to_db
+from flask import (Flask, render_template, request, flash)
+from model import connect_to_db, Bot, BotResponse
 import arrow
+import crud
+import random
 
 app = Flask(__name__)
 
+app.secret_key = "sein"
 
 @app.route ('/')
 def homepage():
@@ -18,46 +21,36 @@ def homepage():
     
     user_message = request.args.get("user-input")
     user_name = request.args.get("username")
+
+    bot_char = request.args.get("character-bot")
     
-    print("Aloha")
+
+    
+    if bot_char == "jerry":
+        f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
+        bot_response = f_jerry.response
+    # elif bot_char == "george":
+    #     f_george = BotResponse.query.filter(BotResponse.bot_id == 2).first()
+    #     bot_response = f_george.response
+    # elif bot_char == "no_selection":
+    #     bot_response = " "
+    #     flash("Please select a character")
     
     return render_template('homepage.html',
                             days_left=days_left.days,
                             message=user_message,
                             username=user_name,
+                            bot_message=bot_response
                             )
+
     # PSUEDOCODE ####################
     # if user-input submit is clicked
-    #     then callback function that does:
-    #         print/append via jinja the username and input
+    #      print/append via jinja the username and input
     #             always return user-input with a bot response
 
 
-# @app.route ('/')
-# def userMessage():
-#     """Print username and their messages on homepage."""
-
-#     user_message = request.args.get("user-input")
-#     user_name = request.args.get("username")
-
-#     # has never printed anything at all
-#     return render_template('homepage.html',
-#                             message=user_message,
-#                             username=user_name,
-                            
-#                             )
-
-
-# when a user submits a textarea input on homepage
-# def open_seinfeld_quotes(filename):
-#     """Access quotes from a csv file."""
-
-#     file = open(filename)
-#     read_file = file.read()
-
-
-
-
+# saved for crud querying
+# query = crud.find_jerry_bot(jerry)
 
 if __name__ == '__main__':
     connect_to_db(app)

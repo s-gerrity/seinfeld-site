@@ -1,20 +1,10 @@
 """CRUD operations."""
 
-# from model import *
+from model import *
 
+def find_jerry_bot(jerry):
 
-# def create_bot_responses(response_id, bot_id, response):
-#     """Create response for bot."""
-
-#     response = BotResponse(response_id=response_id,
-#                             bot_id=bot_id,
-#                             response=response
-#                             )
-
-#     db.session.add(response)
-#     db.session.commit()
-
-#     return response
+    return BotResponse.query.filter(BotResponse.bot_id == 1).first()
 
 
 

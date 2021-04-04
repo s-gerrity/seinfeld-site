@@ -25,6 +25,12 @@ class Bot(db.Model):
                    primary_key=True)
     bot_name = db.Column(db.String)
 
+    def __init__(self, bot_name):
+        """Create a bot."""
+
+        self.bot_name = bot_name
+ 
+
     def __repr__(self):
         return f'<Bot id={self.id} bot_name={self.bot_name} These pretzels are makin me thirsty.>'
 
@@ -53,8 +59,8 @@ class BotResponse(db.Model):
 
 
     def __repr__(self):
-        return f'<bot_response id={self.response_id}>'  
-
+        return f'{self.response}'  
+# bot_response id={self.response_id} response=
 #db.create_all() is to create all the tables with the details above in python class
 #caution: check to see if the variable will return a list or an actual string
 
