@@ -16,31 +16,35 @@ def homepage():
     """Loads Festivus countdown + bot chat."""
 
 
-    # Festivus countdown
+    ########## Festivus countdown #################
     todays_date = arrow.now('US/Pacific')
     festivus_date = arrow.get(2021, 12, 23)
     days_left = festivus_date - todays_date
+
     
-    # Bot chat
+    ########## Bot chat ###########################
     user_name_input = request.args.get("username")
 
-    # if user made a chat request w username in session 
-    # already, they don't have to keep updating it
+    # if user in session's username is not blank
     if user_name_input != "":
 
-        # adds previous user name as current
+        # assign their username as the value in session
         session['username'] = user_name_input
-        
+    # else:
+    #     user_name_display = session['username']
+
+    # session['username'] = user_name_input
+    # a variable that holds the username
     user_name_display = session['username']
+  
 
-    # if brand new visit, make a user name and save to session
-    session['username'] = user_name
+    # if the username wasn't entered, use the previous username
+    if 'username' not in session:
+        session['username'] = user_name_display
+    else: 
+        user_name_display = session['username']
 
 
-    # if 'username' not in session:
-    #     session['username'] = user_name
-    # else: 
-    #     user_name = session['username']
 
     user_message = request.args.get("user-input")
 
@@ -50,8 +54,9 @@ def homepage():
     else:
         session['usermessage'].append(user_message)
 
-    print('SESSION', session)
-    print(user_name)
+    print("ALOHA")
+    print(user_name_display)
+    print(user_name_input)
 
     '''
     dictionary must do this
@@ -71,6 +76,7 @@ def homepage():
         "jerry" : ["imabot", "and my name is jerry"]
     }
     '''
+
     bot_char = request.args.get("character-bot")
     
 
@@ -108,28 +114,20 @@ def homepage():
         # flash messages are not working, but site runs fine without it
         f"Please select a character"
     
-    session['botname'] = bot_name
-    session['botresponse'] = bot_response
-    print('POSTBOT', session)
+    # session['botname'] = bot_name
+    # session['botresponse'] = bot_response
+    # print('POSTBOT', session)
 
 
     return render_template('homepage.html',
                             days_left=days_left.days,
                             message=user_message,
-                            username=user_name,
+                            user_name=user_name_display,
                             bot_message=bot_response,
                             )
 
 
 if __name__ == '__main__':
-
-    # EJSesssion = {
-    #     "USER_RESPONSES":["I'm a user", "seriously"],
-    #     "BOT_RESPONSES": ["I'm a robot", "a bot for sure"],
-    # }
-    # for message, phrase in zip(EJSesssion['USER_RESPONSES'], EJSesssion['BOT_RESPONSES']):
-    #     print("jerry " + message)
-    #     print("george " + phrase)
 
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)
