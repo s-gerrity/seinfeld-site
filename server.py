@@ -78,23 +78,23 @@ def homepage():
     ###### BOT NAME / CHAR SELECTION ####################
     bot_char = request.args.get("character-bot")
 
-    # add bot character selected to session
-    session['botname'] = bot_char
+
+    if bot_char != 'no_selection':
+        
+        session['botname'] = bot_char
 
     # save the bot selected to the display
     bot_char_display = session['botname']
 
-
-    if bot_char in session == 'no_selection':
+    if 'botname' not in session:
         session['botname'] = bot_char_display
-
     
     # if jerry is selected, query a response from db
-    if bot_char == "jerry":
-        f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
+    # if bot_char == "jerry":
+    #     f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
         
-        # bot_name = "Jerry"
-        bot_response = f_jerry.response
+    #     # bot_name = "Jerry"
+    #     bot_response = f_jerry.response
 
     # elif bot_char == "george":
     #     f_george = BotResponse.query.filter(BotResponse.bot_id == 2).first()
@@ -110,12 +110,12 @@ def homepage():
     #     bot_response = f"Kramer: " + f_kramer.response
         
 
-    elif bot_char == None:
-        bot_response = " "
-        # needs a bot name
-        # bot_name = "jerry"
-        # flash messages are not working, but site runs fine without it
-        f"Please select a character"
+    # elif bot_char == None:
+    #     bot_response = " "
+    #     # needs a bot name
+    #     # bot_name = "jerry"
+    #     # flash messages are not working, but site runs fine without it
+    #     f"Please select a character"
 
     # elif bot_char == "no_selection":
     #     bot_response = " "
@@ -133,7 +133,7 @@ def homepage():
                             days_left=days_left.days,
                             message=user_message,
                             user_name=user_name_display,
-                            bot_message=bot_response,
+                            # bot_message=bot_response,
                             bot_name=bot_char_display
                             )
 
