@@ -77,18 +77,54 @@ def homepage():
 
     ###### BOT NAME / CHAR SELECTION ####################
     bot_char = request.args.get("character-bot")
+    # save the bot selected to the display
+    
+    bot_response = ""
+    if bot_char != None:
 
-
-    if bot_char != 'no_selection':
-        
         session['botname'] = bot_char
 
-    # save the bot selected to the display
+    if bot_char != 'no_selection':
+
+        session['botname'] = bot_char
+        bot_char_display = session['botname'] 
+    
     bot_char_display = session['botname']
+
+    # if bot_char == 'no_selection':
+    #     session['botname'] = bot_char_display 
+    
+
+    print("HELLO")
+    print(bot_char) # when loading for the first time: None
+    print(session) # first time all: None
+
 
     if 'botname' not in session:
         session['botname'] = bot_char_display
+
+    if bot_char == None:
+
+        bot_char_display = f"Pick a character!"
+
+
+
+    ####### BOT RESPONSE ##########################
+    # print("ALOHA")
+    # print(bot_char) # first time: None
+    # print(bot_char_display) # first time: None
+    # print(session)
+
     
+    if bot_char == "jerry":
+        f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
+        # print("HI MOM", f_jerry)
+        bot_response = f_jerry.response
+        # print(bot_response)
+    elif bot_char == 'george':
+        f_george = BotResponse.query.filter(BotResponse.bot_id == 2).first()
+        bot_response = f_george
+
     # if jerry is selected, query a response from db
     # if bot_char == "jerry":
     #     f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
@@ -133,7 +169,7 @@ def homepage():
                             days_left=days_left.days,
                             message=user_message,
                             user_name=user_name_display,
-                            # bot_message=bot_response,
+                            bot_message=bot_response,
                             bot_name=bot_char_display
                             )
 

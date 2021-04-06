@@ -28,11 +28,14 @@
             <p>Pick a character from the show to have an instant-message conversation with.</p>
             <form action="/">     
                 <select name="character-bot">
-                    <option value="no_selection" id="0">Choose a name</option>
-                    <option value="jerry" name="1">Jerry</option>
-                    <option value="george" id="2">George</option>
-                    <option value="elaine" id="3">Elaine</option>
-                    <option value="kramer" id="4">Kramer</option>
+                    <option value="Jerry" selected>Jerry</option>
+                    <option value="George">George</option>
+                    <option value="Elaine">Elaine</option>
+                    <option value="Kramer">Kramer</option>
+                    
+                        {% if session['botname'] != None %}
+                    <option value="{{ bot_name }}" selected>{{ bot_name }}</option>
+                    {% endif %}
                 </select><br>
                 <p>Make up a username for your chat.</p>
                     <label for="username">Username:</label>
