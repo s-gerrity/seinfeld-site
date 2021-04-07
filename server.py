@@ -75,7 +75,7 @@ def homepage():
         "jerry" : ["imabot", "and my name is jerry"]
     }
     '''
-                #{% for username in session %}
+
     ###### BOT NAME / CHAR SELECTION ####################
     bot_char = request.args.get("character-bot")
     
@@ -121,34 +121,22 @@ def homepage():
 
     
     if bot_char == "Jerry":
-        # queries all jerry quotes from db
-        f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
-
         # count the quote rows
-        # count_f_jerry = int(f_jerry.count(f_jerry))
+        count_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).count()
+
+        # random jerry number
+        rand_jerry = random.randint(1, count_jerry)
 
         # choose a randon jerry response from the db
-        bot_response = f_jerry
-        # f_jerry(int(count_f_jerry*random.random())).first()
-        # bot_response = f_jerry.response
+        bot_response = BotResponse.query.filter(BotResponse.bot_id == 1).offset(rand_jerry).first()
+        
 
     elif bot_char == 'George':
         f_george = BotResponse.query.filter(BotResponse.bot_id == 2).first()
         bot_response = f_george
 
-
-    
-    # session['botname'] = bot_name
-    # session['botresponse'] = bot_response
-    # print('POSTBOT', session)
-    # for key, value in session.items():
-    #     if key == 'usermessage':
-    #         for value in value:
-    #             user_message_loop = value
-    # user_message_loop
-
     user_messages = session['user_messages_key']
-    bot_responses = [str(bot_response) + str(i) for i in range(0, len(user_messages))]
+    # bot_responses = [str(bot_response) + str(i) for i in range(0, len(user_messages))]
 
     return render_template('homepage.html',
                             days_left=days_left.days,
@@ -157,9 +145,6 @@ def homepage():
                             bot_responses=bot_responses,
                             bot_name=bot_char_display
                             )
-
-#<p id="user-message">{{ user_name }}: {{ message }}</p><br>
-#<p id="bot-message">{{ bot_name }}: {{ bot_message }}</p><br>
 
 if __name__ == '__main__':
 
