@@ -32,7 +32,6 @@
                     <option value="George">George</option>
                     <option value="Elaine">Elaine</option>
                     <option value="Kramer">Kramer</option>
-                    
                         {% if session['botname'] != None %}
                     <option value="{{ bot_name }}" selected>{{ bot_name }}</option>
                     {% endif %}
@@ -47,12 +46,16 @@
                 <!-- next area should print the users input and show the bots response-->
             <div class="transcript">
                 <h4>Message log:</h4><br>
-                <p id="user-message">{{ user_name }}: {{ message }}</p><br>
-                <p id="bot-message">{{ bot_name }}: {{ bot_message }}</p><br>
+                
+                {% for i in range(user_messages|length) %}
+                            <p id="user-line">{{ user_name }}: {{ user_messages[i] }}</p><br>
+                            <p id="bot-line">{{ bot_name }}: {{ bot_responses[i] }}</p><br>     
+                            
+
+                {% endfor %}
+                
             </div>
-
-
-
+             
 
 
                 <!-- move on to other features -->

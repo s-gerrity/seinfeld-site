@@ -27,33 +27,34 @@ def homepage():
     user_name_input = request.args.get("username")
 
     # if user in session's username is not blank
+    print(user_name_input, user_name_input is None)
     if user_name_input != "":
 
         # assign their username as the value in session
-        session['username'] = user_name_input
+        session['user_name_key'] = user_name_input
  
 
     # a variable that holds the username
-    user_name_display = session['username']
+    user_name_display = session['user_name_key']
   
 
     # if the username wasn't entered, use the previous username
-    if 'username' not in session:
-        session['username'] = user_name_display
+    if 'user_name_key' not in session:
+        session['user_name_key'] = user_name_display
 
-
+    
     ########## USER MESSAGE #######################
     user_message = request.args.get("user-input")
 
     # start collecting user message input into an empty list 
     # value and always append into the list (value)
-    if 'usermessage' not in session:
-        session['usermessage'] = []
-        session['usermessage'].append(user_message)
+    if 'user_messages_key' not in session:
+        session['user_messages_key'] = []
+        session['user_messages_key'].append(user_message)
 
     # if there are messages in session, add them to the users value
     else:
-        session['usermessage'].append(user_message)
+        session['user_messages_key'].append(user_message)
 
 
     '''
@@ -74,105 +75,91 @@ def homepage():
         "jerry" : ["imabot", "and my name is jerry"]
     }
     '''
-
+                #{% for username in session %}
     ###### BOT NAME / CHAR SELECTION ####################
     bot_char = request.args.get("character-bot")
-    # save the bot selected to the display
     
+    # hold place for bot response
     bot_response = ""
+
+    # upon first load, None is the char. Save all 
+    # selections after that to a session
     if bot_char != None:
 
-        session['botname'] = bot_char
+        session['bot_name_key'] = bot_char
 
+    # Must save select char as value and show through jinja display
     if bot_char != 'no_selection':
 
-        session['botname'] = bot_char
-        bot_char_display = session['botname'] 
+        session['bot_name_key'] = bot_char
+        bot_char_display = session['bot_name_key'] 
     
-    bot_char_display = session['botname']
-
-    # if bot_char == 'no_selection':
-    #     session['botname'] = bot_char_display 
+    # save the bot selected to the display
+    bot_char_display = session['bot_name_key']
     
 
-    print("HELLO")
-    print(bot_char) # when loading for the first time: None
-    print(session) # first time all: None
+    # print("HELLO")
+    # print(bot_char) # when loading for the first time: None
+    # print(session) # first time all: None
 
+    # show previous selected char
+    if 'bot_name_key' not in session:
+        session['bot_name_key'] = bot_char_display
 
-    if 'botname' not in session:
-        session['botname'] = bot_char_display
-
+    # show this upon first load
     if bot_char == None:
 
-        bot_char_display = f"Pick a character!"
+        bot_char_display = f"Pick a character"
 
 
 
     ####### BOT RESPONSE ##########################
-    # print("ALOHA")
+    print("ALOHA")
     # print(bot_char) # first time: None
     # print(bot_char_display) # first time: None
-    # print(session)
+    print(session)
 
     
-    if bot_char == "jerry":
+    if bot_char == "Jerry":
+        # queries all jerry quotes from db
         f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
-        # print("HI MOM", f_jerry)
-        bot_response = f_jerry.response
-        # print(bot_response)
-    elif bot_char == 'george':
+
+        # count the quote rows
+        # count_f_jerry = int(f_jerry.count(f_jerry))
+
+        # choose a randon jerry response from the db
+        bot_response = f_jerry
+        # f_jerry(int(count_f_jerry*random.random())).first()
+        # bot_response = f_jerry.response
+
+    elif bot_char == 'George':
         f_george = BotResponse.query.filter(BotResponse.bot_id == 2).first()
         bot_response = f_george
 
-    # if jerry is selected, query a response from db
-    # if bot_char == "jerry":
-    #     f_jerry = BotResponse.query.filter(BotResponse.bot_id == 1).first()
-        
-    #     # bot_name = "Jerry"
-    #     bot_response = f_jerry.response
 
-    # elif bot_char == "george":
-    #     f_george = BotResponse.query.filter(BotResponse.bot_id == 2).first()
-
-    #     bot_response = f"George: " + f_george.response
-
-    # elif bot_char == "elaine":
-    #     f_elaine = BotResponse.query.filter(BotResponse.bot_id == 2).first()
-    #     bot_response = f"Elaine: " + f_elaine.response
-
-    # elif bot_char == "kramer":
-    #     f_kramer = BotResponse.query.filter(BotResponse.bot_id == 2).first()
-    #     bot_response = f"Kramer: " + f_kramer.response
-        
-
-    # elif bot_char == None:
-    #     bot_response = " "
-    #     # needs a bot name
-    #     # bot_name = "jerry"
-    #     # flash messages are not working, but site runs fine without it
-    #     f"Please select a character"
-
-    # elif bot_char == "no_selection":
-    #     bot_response = " "
-    #     # needs a bot name
-    #     bot_name = "jerry"
-    #     # flash messages are not working, but site runs fine without it
-    #     f"Please select a character"
     
     # session['botname'] = bot_name
     # session['botresponse'] = bot_response
     # print('POSTBOT', session)
+    # for key, value in session.items():
+    #     if key == 'usermessage':
+    #         for value in value:
+    #             user_message_loop = value
+    # user_message_loop
 
+    user_messages = session['user_messages_key']
+    bot_responses = [str(bot_response) + str(i) for i in range(0, len(user_messages))]
 
     return render_template('homepage.html',
                             days_left=days_left.days,
-                            message=user_message,
+                            user_messages=user_messages,
                             user_name=user_name_display,
-                            bot_message=bot_response,
+                            bot_responses=bot_responses,
                             bot_name=bot_char_display
                             )
 
+#<p id="user-message">{{ user_name }}: {{ message }}</p><br>
+#<p id="bot-message">{{ bot_name }}: {{ bot_message }}</p><br>
 
 if __name__ == '__main__':
 
