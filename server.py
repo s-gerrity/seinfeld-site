@@ -5,6 +5,7 @@ from flask import (Flask, render_template, request, session)
 from model import connect_to_db, Bot, BotResponse
 import arrow
 import random
+import sein_twit
 
 app = Flask(__name__)
 
@@ -125,10 +126,29 @@ def homepage():
 @app.route('/where-are-they-now')
 def where_are_they_now():
     """Loads tweets from Twitter API."""
+
+    tweet_screen_name = {'Jerry': 'jerryseinfeld', 
+                        'Julia': 'officialjld', 
+                        'Jason': 'IJasonAlexander', 
+                        'Modern Seinfeld': 'modern_seinfeld'}
     
+    jerry_tweets = sein_twit.recent_jerry_tweets(tweet_screen_name)
+
+    julia_tweets = sein_twit.recent_julia_tweets(tweet_screen_name)
+    
+    jason_tweets = sein_twit.recent_jason_tweets(tweet_screen_name)
+
+    modern_tweets = sein_twit.recent_modern_tweets(tweet_screen_name)
+ 
+    return render_template('where-are-they-now.html',
+                            jerry_tweets=jerry_tweets,
+                            julia_tweets=julia_tweets,
+                            jason_tweets=jason_tweets,
+                            modern_tweets=modern_tweets
+                            )
 
 
-    return render_template('where-are-they-now.html')
+
 
 if __name__ == '__main__':
 
