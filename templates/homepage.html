@@ -14,7 +14,6 @@
     <body>
         <nav class="nav-bar">
             <ol>
-                <li><a href="#festivus-countdown">Festivus Countdown</a></li>
                 <li><a href="#bot-chat">Character Bot</a></li>
                 <li><a href="/where-are-they-now">Where Are They Now?</a></li>
                 <li><a href="food-locator">SeinFood Locator</a></li>
@@ -41,12 +40,11 @@
                         <option value="Kramer">Kramer</option>
                             {% if session['botname'] != None %}
                         <option value="{{ bot_name }}" selected>{{ bot_name }}</option>
-                        
                         {% endif %}
                     </select><br>
                     <p>Make up a username for your chat.</p>
                         <label for="username">Username:</label>
-                        <input type="username" id="username" name ="username" placeholder="mrskramer"><br><br>
+                        <input type="username" id="username" name ="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %}><br><br>
                             <textarea rows="3" cols="30" name="user-input" id=#user-input>
                             </textarea><br>
                                 <input type="submit" value="submit" id="button"><br>

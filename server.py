@@ -86,7 +86,6 @@ def homepage():
 
 
     ####### BOT RESPONSE ##########################
-    # # # # # ###### IF BOT CHAR DISPLAY IS "NONE" NEED TO RELOAD PAGE AS IS#########
 
     # create a session value list to collect bot responses
     if 'bot_responses_key' not in session:
@@ -131,23 +130,26 @@ def where_are_they_now():
                         'Julia': 'officialjld', 
                         'Jason': 'IJasonAlexander', 
                         'Modern Seinfeld': 'modern_seinfeld'}
-    
+
+    # call functions from sein_twit.py to post latest 5 tweets from each handle
     jerry_tweets = sein_twit.recent_jerry_tweets(tweet_screen_name)
-
     julia_tweets = sein_twit.recent_julia_tweets(tweet_screen_name)
-    
     jason_tweets = sein_twit.recent_jason_tweets(tweet_screen_name)
-
     modern_tweets = sein_twit.recent_modern_tweets(tweet_screen_name)
  
     return render_template('where-are-they-now.html',
                             jerry_tweets=jerry_tweets,
                             julia_tweets=julia_tweets,
                             jason_tweets=jason_tweets,
-                            modern_tweets=modern_tweets
+                            modern_tweets=modern_tweets,
                             )
 
 
+@app.route('/food-locator')
+def load_seinfood():
+    """Loads Seinfeld Food Locator page."""
+
+    return render_template('seinfood.html')
 
 
 if __name__ == '__main__':
