@@ -16,7 +16,10 @@ api = tweepy.API(auth)
 # q= is querying "whatever"
 # ".items" is the pagination limit of how many are requested
 
-tweet_screen_name = {'Jerry': 'jerryseinfeld', 'Julia': 'officialjld', 'Jason': 'IJasonAlexander', 'Modern Seinfeld': 'modern_seinfeld'}
+tweet_screen_name = {'Jerry': 'jerryseinfeld', 
+                    'Julia': 'officialjld', 
+                    'Jason': 'IJasonAlexander', 
+                    'Modern Seinfeld': 'modern_seinfeld'}
 
 
 def recent_jerry_tweets(tweet_screen_name):
@@ -24,13 +27,11 @@ def recent_jerry_tweets(tweet_screen_name):
 
     # create list to collect tweet text
     jerry_tweets = []
-    # jerry_tweet_dates = []
 
     # pull tweet text from API 
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
         # add the text to the list
         jerry_tweets.append(tweet.text)
-        # jerry_tweet_dates.append(tweet.created_at)
        
 
     return jerry_tweets
@@ -63,19 +64,28 @@ def recent_modern_tweets(tweet_screen_name):
 
     return modern_tweets
         
+
+# # # # ##  # DATE CREATED // JERRY ONLY # # # # # ############
 def created_at_jerry(tweet_screen_name):
-    """Pull last 5 tweets from Jerry."""
+    """Pull dates from last 5 Jerry tweets."""
 
-    # create list to collect tweet dates
     jerry_tweet_dates = []
-
-    # pull tweet text from API 
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
-        # add the text to the list
-    
         jerry_tweet_dates.append(tweet.created_at)
 
     return jerry_tweet_dates
+
+
+# # # # ##  # LIKES // JERRY ONLY # # # # # ############
+def likes_jerry(tweet_screen_name):
+    """Pull likes from last 5 Jerry tweets."""
+
+    jerry_likes = []
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
+        jerry_likes.append(tweet.favorite_count)
+
+    return jerry_likes
+
 
 if __name__ == '__main__':
     from server import app
