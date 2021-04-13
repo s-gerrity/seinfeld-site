@@ -126,18 +126,24 @@ def homepage():
 def where_are_they_now():
     """Loads tweets from Twitter API."""
 
+    # dict for querying by username
     tweet_screen_name = {'Jerry': 'jerryseinfeld', 
                         'Julia': 'officialjld', 
                         'Jason': 'IJasonAlexander', 
                         'Modern Seinfeld': 'modern_seinfeld'}
 
     # call functions from sein_twit.py to post latest 5 tweets from each handle
+    # jerry date, text, and likes
     jerry_tweets = sein_twit.recent_jerry_tweets(tweet_screen_name)
-    julia_tweets = sein_twit.recent_julia_tweets(tweet_screen_name)
-    jason_tweets = sein_twit.recent_jason_tweets(tweet_screen_name)
-    modern_tweets = sein_twit.recent_modern_tweets(tweet_screen_name)
     jerry_tweet_dates = sein_twit.created_at_jerry(tweet_screen_name)
     jerry_likes = sein_twit.likes_jerry(tweet_screen_name)
+    # julia text
+    julia_tweets = sein_twit.recent_julia_tweets(tweet_screen_name)
+    # jason text
+    jason_tweets = sein_twit.recent_jason_tweets(tweet_screen_name)
+    # modern text 
+    modern_tweets = sein_twit.recent_modern_tweets(tweet_screen_name)
+
     
 
     return render_template('where-are-they-now.html',
@@ -156,6 +162,10 @@ def load_seinfood():
 
     return render_template('seinfood.html')
 
+# saved from homepage html
+                        #     {% if session['botname'] != None %}
+                        # <option value="{{ bot_name }}" selected>{{ bot_name }}</option>
+                        # {% endif %}
 
 if __name__ == '__main__':
 
