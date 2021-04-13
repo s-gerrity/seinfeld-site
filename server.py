@@ -136,12 +136,15 @@ def where_are_they_now():
     julia_tweets = sein_twit.recent_julia_tweets(tweet_screen_name)
     jason_tweets = sein_twit.recent_jason_tweets(tweet_screen_name)
     modern_tweets = sein_twit.recent_modern_tweets(tweet_screen_name)
- 
+    jerry_tweet_dates = sein_twit.created_at_jerry(tweet_screen_name)
+    print("TWEET DATE", jerry_tweet_dates)
+
     return render_template('where-are-they-now.html',
                             jerry_tweets=jerry_tweets,
                             julia_tweets=julia_tweets,
                             jason_tweets=jason_tweets,
                             modern_tweets=modern_tweets,
+                            jerry_tweet_dates=jerry_tweet_dates,
                             )
 
 

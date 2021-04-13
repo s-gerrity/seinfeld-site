@@ -30,8 +30,8 @@
             <h3>Jerry Seinfeld as 'Jerry' on 'Seinfeld'</h3>
             <h4>Twitter handle: <a href="https://twitter.com/jerryseinfeld">@jerryseinfeld</a></h4><br>
             <p>Last 5 tweets</p>
-            {% for tweet in jerry_tweets %}
-            <p>{{ tweet }}</p>
+            {% for i in range(jerry_tweet_dates|length) %}
+            <p>{{ jerry_tweet_dates[i] }}: {{ jerry_tweets[i] }}</p>
             {% endfor %}
         </div>
 

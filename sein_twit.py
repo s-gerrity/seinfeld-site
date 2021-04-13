@@ -24,10 +24,13 @@ def recent_jerry_tweets(tweet_screen_name):
 
     # create list to collect tweet text
     jerry_tweets = []
+    # jerry_tweet_dates = []
+
     # pull tweet text from API 
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
         # add the text to the list
         jerry_tweets.append(tweet.text)
+        # jerry_tweet_dates.append(tweet.created_at)
        
 
     return jerry_tweets
@@ -60,6 +63,19 @@ def recent_modern_tweets(tweet_screen_name):
 
     return modern_tweets
         
+def created_at_jerry(tweet_screen_name):
+    """Pull last 5 tweets from Jerry."""
+
+    # create list to collect tweet dates
+    jerry_tweet_dates = []
+
+    # pull tweet text from API 
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
+        # add the text to the list
+    
+        jerry_tweet_dates.append(tweet.created_at)
+
+    return jerry_tweet_dates
 
 if __name__ == '__main__':
     from server import app
