@@ -65,24 +65,24 @@ class BotResponse(db.Model):
 class Seinfood(db.Model):
     """Food Locator table class."""
 
-    __tablename__ = 'seinfood'
+    __tablename__ = 'seinfoods'
 
     seinfood_id = db.Column(db.Integer,
                             autoincrement= True,
                             primary_key=True)
-    food_categories = db.Column(db.String)
+    food_category = db.Column(db.String)
     category_active = db.Column(db.Boolean)
 
 
-    def __init__(self, bot_id, response):
-    """Create a food search category."""
+    def __init__(self, food_category, category_active):
+        """Create a food search category."""
 
-        self.food_categories = food_categories
+        self.food_category = food_category
         self.category_active = category_active
 
 
     def __repr__(self):
-        return f'{self.food_categories} active? {self.category_active}' 
+        return f'<{self.food_category}> Active? <{self.category_active}>' 
 
 
 
