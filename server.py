@@ -162,10 +162,6 @@ def load_seinfood():
 
     return render_template('seinfood.html')
 
-# saved from homepage html
-                        #     {% if session['botname'] != None %}
-                        # <option value="{{ bot_name }}" selected>{{ bot_name }}</option>
-                        # {% endif %}
 
 if __name__ == '__main__':
 

@@ -60,9 +60,32 @@ class BotResponse(db.Model):
 
     def __repr__(self):
         return f'{self.response}'  
-# bot_response id={self.response_id} response=
-#db.create_all() is to create all the tables with the details above in python class
-#caution: check to see if the variable will return a list or an actual string
+
+
+class Seinfood(db.Model):
+    """Food Locator table class."""
+
+    __tablename__ = 'seinfood'
+
+    seinfood_id = db.Column(db.Integer,
+                            autoincrement= True,
+                            primary_key=True)
+    food_categories = db.Column(db.String)
+    category_active = db.Column(db.Boolean)
+
+
+    def __init__(self, bot_id, response):
+    """Create a food search category."""
+
+        self.food_categories = food_categories
+        self.category_active = category_active
+
+
+    def __repr__(self):
+        return f'{self.food_categories} active? {self.category_active}' 
+
+
+
 
 if __name__ == '__main__':
     from server import app
@@ -70,6 +93,8 @@ if __name__ == '__main__':
     # Call connect_to_db(app, echo=False) if your program output gets
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
+    # db.create_all() is to create all the tables with the details above in python class
+    # caution: check to see if the variable will return a list or an actual string
 
     connect_to_db(app)
     db.create_all()
