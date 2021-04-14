@@ -53,9 +53,11 @@
                     </ul>
                 <h3>Places: </h3>
                 <ul>
-                {% for i in range(0, list_of_businesses|length, 2) %}
-                    <li>{{ list_of_businesses[i] }}: {{ list_of_businesses[i+1] }}</li>
-                {% endfor %}
+               
+                    {% for key, value in dict_of_businesses.items() %}
+                        <li>{{ key }}: {% for item in value %}{{ item }} {% endfor %}</li>
+                    {% endfor %}
+                
                 </ul>
             </div>
 

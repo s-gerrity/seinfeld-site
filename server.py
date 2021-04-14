@@ -170,10 +170,11 @@ def load_seinfood():
     # call functions that gets 1 business for each cuisine search
     # use jinja to display the options
 
-    list_of_businesses = sein_yelp.get_businesses()
+    dict_of_businesses = sein_yelp.get_businesses()
+    print("ALOHA", dict_of_businesses)
 
     return render_template('seinfood.html',
-                            list_of_businesses=list_of_businesses,
+                            dict_of_businesses=dict_of_businesses,
                             )
 
 
