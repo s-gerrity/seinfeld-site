@@ -6,6 +6,7 @@ from model import connect_to_db, Bot, BotResponse
 import arrow
 import random
 import sein_twit
+import sein_yelp
 
 app = Flask(__name__)
 
@@ -166,7 +167,14 @@ def where_are_they_now():
 def load_seinfood():
     """Loads Seinfeld Food Locator page."""
 
-    return render_template('seinfood.html')
+    # call functions that gets 1 business for each cuisine search
+    # use jinja to display the options
+
+    list_of_businesses = sein_yelp.get_businesses()
+
+    return render_template('seinfood.html',
+                            list_of_businesses=list_of_businesses,
+                            )
 
 
 if __name__ == '__main__':
