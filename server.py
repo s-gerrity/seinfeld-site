@@ -1,7 +1,7 @@
 """Server for The Ultimate Seinfeld Experience."""
 
 
-from flask import (Flask, render_template, request, session)
+from flask import (Flask, render_template, request, session, redirect)
 from model import connect_to_db, Bot, BotResponse
 import arrow
 import random
@@ -10,6 +10,12 @@ import sein_twit
 app = Flask(__name__)
 
 app.secret_key = "sehn"
+
+@app.route('/clear')
+def clear():
+
+    session.clear()
+    return redirect('/')
 
 @app.route ('/')
 def homepage():

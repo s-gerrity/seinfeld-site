@@ -42,11 +42,11 @@
 
                     </select><br>
                     <p>Make up a username for your chat.</p>
-                        <label for="username">Username:</label>
-                        <input type="username" id="username" name ="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %}><br><br>
-                            <textarea rows="3" cols="30" name="user-input" id=#user-input>
-                            </textarea><br>
-                                <input type="submit" value="submit" id="button"><br>
+                    <label for="username">Username:</label>
+                    <input type="username" id="username" name ="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %}><br><br>
+                    <textarea rows="3" cols="30" name="user-input" id=#user-input></textarea>
+                    <br>     
+                    <input type="submit" value="submit" id="submit-button"><br>
                 </form>
                 
                 
@@ -62,7 +62,9 @@
                         {% if bot_responses[i] %}<p id="bot-line">{{ bot_name }}: {{ bot_responses[i] }}</p><br>{% endif %}{% endif %}
 
                     {% endfor %}
-                        <button type="button">End Chat</button>
+                    <form action="/clear" method="GET">     
+                        <input type="submit" value="End Chat">
+                    </form>
                 </div>
                 
 
