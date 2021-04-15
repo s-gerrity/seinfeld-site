@@ -116,10 +116,13 @@ def homepage():
         # add the response to the session
         session['bot_responses_key'].append(str(bot_response))
       
-
+    print("USER NAME 1", user_name_display)
+    print("BOT NAME 1", bot_char_display)
     user_messages = session['user_messages_key']
     bot_responses = session['bot_responses_key']
-    
+    print("USER NAME 2", user_name_display)
+    print("USER MESSAGES", user_messages)
+
     return render_template('homepage.html',
                             days_left=days_left.days,
                             user_messages=user_messages,
@@ -133,7 +136,7 @@ def homepage():
 def where_are_they_now():
     """Loads tweets from Twitter API."""
 
-    # dict for querying by username
+    # for querying by username
     tweet_screen_name = {'Jerry': 'jerryseinfeld', 
                         'Julia': 'officialjld', 
                         'Jason': 'IJasonAlexander', 
@@ -167,11 +170,7 @@ def where_are_they_now():
 def load_seinfood():
     """Loads Seinfeld Food Locator page."""
 
-    # call functions that gets 1 business for each cuisine search
-    # use jinja to display the options
-
     dict_of_businesses = sein_yelp.get_businesses()
-    print("ALOHA", dict_of_businesses)
 
     return render_template('seinfood.html',
                             dict_of_businesses=dict_of_businesses,

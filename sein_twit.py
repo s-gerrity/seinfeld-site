@@ -29,7 +29,7 @@ def recent_jerry_tweets(tweet_screen_name):
     jerry_tweets = []
 
     # pull tweet text from API 
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry'], include_rts=False).items(5):
         # add the text to the list
         jerry_tweets.append(tweet.text)
        
@@ -40,7 +40,7 @@ def recent_julia_tweets(tweet_screen_name):
     """Pull last 5 tweets from Julia Louis-Dreyfus."""
 
     julia_tweets = []
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Julia']).items(5):
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Julia'], include_rts=False).items(5):
         julia_tweets.append(tweet.text)
 
     return julia_tweets
@@ -50,7 +50,7 @@ def recent_jason_tweets(tweet_screen_name):
     """Pull last 5 tweets from Jason Alexander."""
 
     jason_tweets = []
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jason']).items(5):
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jason'], include_rts=False).items(5):
         jason_tweets.append(tweet.text)
 
     return jason_tweets
@@ -59,7 +59,7 @@ def recent_modern_tweets(tweet_screen_name):
     """Pull last 5 tweets from Modern Seinfeld."""
 
     modern_tweets = []
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Modern Seinfeld']).items(5):
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Modern Seinfeld'], include_rts=False).items(5):
         modern_tweets.append(tweet.text)
 
     return modern_tweets
