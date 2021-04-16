@@ -1,6 +1,11 @@
+"""Yelp API connection & queries."""
+
 import os
 import requests
-from model import connect_to_db
+from model import connect_to_db, Seinfood
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
 # define the API key, define the endpoint, define the header
@@ -13,15 +18,10 @@ def get_businesses():
     """Query Yelp API for businesses according to search parameters."""
     
     # list of searches for the parameters to loop through
-    food_list = ['chinese restaurant', 
-                 'soup restaurant', 
-                 'babka', 
-                 'diner', 
-                 'produce market', 
-                 'calzone', 
-                 'muffin', 
-                 'pakistani restaurant', 
-                 'marble rye']
+    food_query = db.session.query(Seinfood.food_category)
+    food_list = food_query.filter(Seinfood.category_active == True).all()
+    print("FOOD LIST", food_list, type(food_list))
+
     # dict to send the data to render template
     business_dict = {}
 

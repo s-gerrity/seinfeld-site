@@ -1,3 +1,5 @@
+"""Twitter API connection & queries."""
+
 import tweepy
 import os
 from model import connect_to_db
