@@ -144,15 +144,15 @@ def where_are_they_now():
 
     # call functions from sein_twit.py to post latest 5 tweets from each handle
     # jerry date, text, and likes
-    jerry_tweets = sein_twit.recent_jerry_tweets(tweet_screen_name)
+    jerry_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jerry')
     jerry_tweet_dates = sein_twit.created_at_jerry(tweet_screen_name)
     jerry_likes = sein_twit.likes_jerry(tweet_screen_name)
     # julia text
-    julia_tweets = sein_twit.recent_julia_tweets(tweet_screen_name)
+    julia_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Julia')
     # jason text
-    jason_tweets = sein_twit.recent_jason_tweets(tweet_screen_name)
+    jason_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jason')
     # modern text 
-    modern_tweets = sein_twit.recent_modern_tweets(tweet_screen_name)
+    modern_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Modern Seinfeld')
 
     
 
