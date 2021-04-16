@@ -143,26 +143,40 @@ def where_are_they_now():
                         'Modern Seinfeld': 'modern_seinfeld'}
 
     # call functions from sein_twit.py to post latest 5 tweets from each handle
-    # jerry date, text, and likes
+    jerry_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Jerry')
     jerry_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jerry')
-    jerry_tweet_dates = sein_twit.created_at_jerry(tweet_screen_name)
-    jerry_likes = sein_twit.likes_jerry(tweet_screen_name)
-    # julia text
-    julia_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Julia')
-    # jason text
-    jason_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jason')
-    # modern text 
-    modern_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Modern Seinfeld')
+    jerry_likes = sein_twit.tweet_likes(tweet_screen_name, 'Jerry')
 
+    julia_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Julia')
+    julia_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Julia')
+    julia_likes = sein_twit.tweet_likes(tweet_screen_name, 'Julia')
+
+    jason_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Jason')
+    jason_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jason')
+    jason_likes = sein_twit.tweet_likes(tweet_screen_name, 'Jason')
+
+    modern_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Modern Seinfeld')
+    modern_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Modern Seinfeld')
+    modern_likes = sein_twit.tweet_likes(tweet_screen_name, 'Modern Seinfeld')
     
 
     return render_template('where-are-they-now.html',
-                            jerry_tweets=jerry_tweets,
-                            julia_tweets=julia_tweets,
-                            jason_tweets=jason_tweets,
-                            modern_tweets=modern_tweets,
                             jerry_tweet_dates=jerry_tweet_dates,
+                            jerry_tweets=jerry_tweets,
                             jerry_likes=jerry_likes,
+
+                            julia_tweets=julia_tweets,
+                            julia_tweet_dates=julia_tweet_dates,
+                            julia_likes=julia_likes,
+
+                            jason_tweet_dates=jason_tweet_dates,
+                            jason_tweets=jason_tweets,
+                            jason_likes=jason_likes,
+                            
+                            modern_tweet_dates=modern_tweet_dates,
+                            modern_tweets=modern_tweets,
+                            modern_likes=modern_likes,
+                            
                             )
 
 

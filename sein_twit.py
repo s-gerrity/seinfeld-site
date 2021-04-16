@@ -8,10 +8,8 @@ from model import connect_to_db
 consumer_key = os.environ.get('CONSUMER_KEY')
 consumer_secret = os.environ.get('CONSUMER_SECRET')
 
-
 # my bearer token is a combo
 auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
-
 api = tweepy.API(auth)
 
 # "Cursor" is tweepys way of displaying tweets
@@ -25,12 +23,12 @@ tweet_screen_name = {'Jerry': 'jerryseinfeld',
 
 
 def recent_tweets_text(tweet_screen_name, person):
-    """Pull last 5 tweets from Jerry."""
+    """Pull last 5 tweets from user, sans re-tweets."""
 
     # create list to collect tweet text
     tweet_list = []
 
-    # pull tweet text from API 
+    # pull tweet text from API, iterate through users, filter out re-tweets
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(5):
         # add the text to the list
         tweet_list.append(tweet.text)
@@ -39,26 +37,24 @@ def recent_tweets_text(tweet_screen_name, person):
     return tweet_list
         
 
-# # # # ##  # DATE CREATED // JERRY ONLY # # # # # ############
-def created_at_jerry(tweet_screen_name):
-    """Pull dates from last 5 Jerry tweets."""
+def created_at_date(tweet_screen_name, person):
+    """Pull dates from last 5 tweets, sans re-tweets."""
 
-    jerry_tweet_dates = []
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
-        jerry_tweet_dates.append(tweet.created_at)
+    created_at_dates = []
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(5):
+        created_at_dates.append(tweet.created_at)
 
-    return jerry_tweet_dates
+    return created_at_dates
 
 
-# # # # ##  # LIKES // JERRY ONLY # # # # # ############
-def likes_jerry(tweet_screen_name):
-    """Pull likes from last 5 Jerry tweets."""
+def tweet_likes(tweet_screen_name, person):
+    """Pull likes(favorite count) from last 5 user tweets, sans re-tweets."""
 
-    jerry_likes = []
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name['Jerry']).items(5):
-        jerry_likes.append(tweet.favorite_count)
+    tweet_likes = []
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(5):
+        tweet_likes.append(tweet.favorite_count)
 
-    return jerry_likes
+    return tweet_likes
 
 
 if __name__ == '__main__':

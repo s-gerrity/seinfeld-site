@@ -39,8 +39,8 @@
             <h3>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h3>
             <h4>Twitter handle: <a href="https://twitter.com/officialjld?lang=en">@officialjld</a></h4><br>
             <p>Last 5 tweets</p>
-            {% for tweet in julia_tweets %}
-            <p>{{ tweet }}</p>
+            {% for i in range(julia_tweet_dates|length) %}
+            <p><strong>{{ julia_tweet_dates[i] }}: </strong>{{ julia_tweets[i] }} <strong>Likes: </strong>{{ julia_likes[i] }}</p>
             {% endfor %}
         </div> 
 
@@ -49,8 +49,8 @@
             <h4>Twitter handle: <a href="https://twitter.com/IJasonAlexander?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
                 @IJasonAlexander</a></h4><br>
             <p>Last 5 tweets</p>
-            {% for tweet in jason_tweets %}
-            <p>{{ tweet }}</p>
+            {% for i in range(jason_tweet_dates|length) %}
+            <p><strong>{{ jason_tweet_dates[i] }}: </strong>{{ jason_tweets[i] }} <strong>Likes: </strong>{{ jason_likes[i] }}</p>
             {% endfor %}
         </div>
 
@@ -59,8 +59,8 @@
             <h3>Bonus: A take on how episodes might have gone in the 2010's</h3>
             <h4>Twitter handle: <a href="https://twitter.com/modern_seinfeld?lang=en">@modern_seinfeld</a></h4><br>
             <p>Last 5 tweets</p>
-            {% for tweet in modern_tweets %}
-            <p>{{ tweet }}</p>
+            {% for i in range(modern_tweet_dates|length) %}
+            <p><strong>{{ modern_tweet_dates[i] }}: </strong>{{ modern_tweets[i] }} <strong>Likes: </strong>{{ modern_likes[i] }}</p>
             {% endfor %}
         </div>
 
