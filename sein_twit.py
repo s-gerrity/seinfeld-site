@@ -1,4 +1,4 @@
-"""Twitter API connection & queries."""
+"""Twitter API connection & functions."""
 
 import tweepy
 import os
@@ -29,9 +29,12 @@ def recent_tweets_text(tweet_screen_name, person):
     tweet_list = []
 
     # pull tweet text from API, iterate through users, filter out re-tweets
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(5):
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
+                                                  include_rts=False, 
+                                                  tweet_mode='extended'
+                                                  ).items(5):
         # add the text to the list
-        tweet_list.append(tweet.text)
+        tweet_list.append(tweet.full_text)
        
 
     return tweet_list
@@ -41,7 +44,9 @@ def created_at_date(tweet_screen_name, person):
     """Pull dates from last 5 tweets, sans re-tweets."""
 
     created_at_dates = []
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(5):
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
+                                                  include_rts=False
+                                                  ).items(5):
         created_at_dates.append(tweet.created_at)
 
     return created_at_dates
@@ -56,6 +61,15 @@ def tweet_likes(tweet_screen_name, person):
 
     return tweet_likes
 
+
+def get_profile_image(tweet_screen_name, person):
+    """Get each Twitter accounts profile image."""
+
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(1):
+
+        twitter_profile_image = tweet.user.profile_image_url
+
+        return twitter_profile_image
 
 if __name__ == '__main__':
     from server import app

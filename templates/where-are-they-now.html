@@ -28,6 +28,7 @@
             
         <div class="jerry-twitter">
             <h3>Jerry Seinfeld as 'Jerry' on 'Seinfeld'</h3>
+            <img src="{{ jerry_twitter_profile_image }}">
             <h4>Twitter handle: <a href="https://twitter.com/jerryseinfeld">@jerryseinfeld</a></h4><br>
             <p>Last 5 tweets</p>
             {% for i in range(jerry_tweet_dates|length) %}
@@ -37,6 +38,7 @@
 
         <div class="julia-twitter">
             <h3>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h3>
+            <img src="{{ julia_twitter_profile_image }}">
             <h4>Twitter handle: <a href="https://twitter.com/officialjld?lang=en">@officialjld</a></h4><br>
             <p>Last 5 tweets</p>
             {% for i in range(julia_tweet_dates|length) %}
@@ -46,6 +48,7 @@
 
         <div class="jason-twitter">
             <h3>Jason Alexander as 'George' on 'Seinfeld'</h3>
+            <img src="{{ jason_twitter_profile_image }}">
             <h4>Twitter handle: <a href="https://twitter.com/IJasonAlexander?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
                 @IJasonAlexander</a></h4><br>
             <p>Last 5 tweets</p>
@@ -57,6 +60,7 @@
 
         <div class="modern-twitter">
             <h3>Bonus: A take on how episodes might have gone in the 2010's</h3>
+            <img src="{{ modern_twitter_profile_image }}">
             <h4>Twitter handle: <a href="https://twitter.com/modern_seinfeld?lang=en">@modern_seinfeld</a></h4><br>
             <p>Last 5 tweets</p>
             {% for i in range(modern_tweet_dates|length) %}
