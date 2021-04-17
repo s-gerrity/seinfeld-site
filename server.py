@@ -12,11 +12,6 @@ app = Flask(__name__)
 
 app.secret_key = "sehn"
 
-@app.route('/clear')
-def clear():
-
-    session.clear()
-    return redirect('/')
 
 @app.route ('/')
 def homepage():
@@ -90,8 +85,6 @@ def homepage():
 
 
 
-
-
     ####### BOT RESPONSE ##########################
 
     # create a session value list to collect bot responses
@@ -116,12 +109,12 @@ def homepage():
         # add the response to the session
         session['bot_responses_key'].append(str(bot_response))
       
-    print("USER NAME 1", user_name_display)
-    print("BOT NAME 1", bot_char_display)
+    # print("USER NAME 1", user_name_display)
+    # print("BOT NAME 1", bot_char_display)
     user_messages = session['user_messages_key']
     bot_responses = session['bot_responses_key']
-    print("USER NAME 2", user_name_display)
-    print("USER MESSAGES", user_messages)
+    # print("USER NAME 2", user_name_display)
+    # print("USER MESSAGES", user_messages)
 
     return render_template('homepage.html',
                             days_left=days_left.days,
@@ -132,17 +125,22 @@ def homepage():
                             )
 
 
+@app.route('/clear')
+def clear():
+
+    session.clear()
+    return redirect('/')
+
+
 @app.route('/where-are-they-now')
 def where_are_they_now():
     """Loads tweets from Twitter API."""
 
-    # for querying by username
     tweet_screen_name = {'Jerry': 'jerryseinfeld', 
                         'Julia': 'officialjld', 
                         'Jason': 'IJasonAlexander', 
                         'Modern Seinfeld': 'modern_seinfeld'}
 
-    # call functions from sein_twit.py to post latest 5 tweets from each handle
     jerry_twitter_profile_image = sein_twit.get_profile_image(tweet_screen_name, 'Jerry')
     jerry_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Jerry')
     jerry_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jerry')
@@ -188,16 +186,37 @@ def where_are_they_now():
                             )
 
 
+
+
+@app.route('/zip-code')
+def get_zip_code():
+
+    zip_code_search = request.args.get("zip-code")
+    print("ZIP CODE1", zip_code_search)
+
+    
+   
+    dict_of_businesses = sein_yelp.get_businesses(zip_code_search)
+    
+    return render_template('seinfood.html',
+                            dict_of_businesses=dict_of_businesses,
+                            zip_code_search=zip_code_search,
+                    )
+
 @app.route('/food-locator')
 def load_seinfood():
     """Loads Seinfeld Food Locator page."""
 
-    dict_of_businesses = sein_yelp.get_businesses()
+
+    
+ 
+    
+        # business_url = sein_yelp.get_businesses()
 
     return render_template('seinfood.html',
-                            dict_of_businesses=dict_of_businesses,
-                            )
 
+                            # business_url=business_url,
+                            )
 
 if __name__ == '__main__':
 

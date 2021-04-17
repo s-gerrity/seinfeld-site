@@ -8,7 +8,6 @@ from model import connect_to_db
 consumer_key = os.environ.get('CONSUMER_KEY')
 consumer_secret = os.environ.get('CONSUMER_SECRET')
 
-# my bearer token is a combo
 auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
 api = tweepy.API(auth)
 
@@ -25,15 +24,11 @@ tweet_screen_name = {'Jerry': 'jerryseinfeld',
 def recent_tweets_text(tweet_screen_name, person):
     """Pull last 5 tweets from user, sans re-tweets."""
 
-    # create list to collect tweet text
     tweet_list = []
-
-    # pull tweet text from API, iterate through users, filter out re-tweets
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
                                                   include_rts=False, 
                                                   tweet_mode='extended'
                                                   ).items(5):
-        # add the text to the list
         tweet_list.append(tweet.full_text)
        
 
@@ -56,7 +51,9 @@ def tweet_likes(tweet_screen_name, person):
     """Pull likes(favorite count) from last 5 user tweets, sans re-tweets."""
 
     tweet_likes = []
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(5):
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
+                                                  include_rts=False
+                                                  ).items(5):
         tweet_likes.append(tweet.favorite_count)
 
     return tweet_likes
@@ -65,11 +62,11 @@ def tweet_likes(tweet_screen_name, person):
 def get_profile_image(tweet_screen_name, person):
     """Get each Twitter accounts profile image."""
 
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], include_rts=False).items(1):
-
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person]).items(1):
         twitter_profile_image = tweet.user.profile_image_url
 
         return twitter_profile_image
+
 
 if __name__ == '__main__':
     from server import app

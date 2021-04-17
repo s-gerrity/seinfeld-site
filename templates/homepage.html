@@ -33,7 +33,7 @@
             <p>Pick a character from the show to have an instant-message conversation with.</p>
             
             <form action="/">
-
+                
                 <select name="character-bot">
                     <!-- the character who was sent a chat is automaticallt selected for the next message in session -->
                     <option value="Jerry"{% if bot_name == 'Jerry' %} selected{% endif %}>Jerry</option>
@@ -41,7 +41,7 @@
                     <option value="Elaine"{% if bot_name == 'Elaine' %} selected{% endif %}>Elaine</option>
                     <option value="Kramer"{% if bot_name == 'Kramer' %} selected{% endif %}>Kramer</option>
                 </select>
-
+            
                 <div class="transcript">
                     <!-- for how many messages are saved in the session, show that many messages with
                     a bot response-->

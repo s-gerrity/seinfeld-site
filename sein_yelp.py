@@ -4,25 +4,23 @@ import os
 import requests
 from model import connect_to_db, Seinfood
 from flask_sqlalchemy import SQLAlchemy
+from server import get_zip_code
 
 db = SQLAlchemy()
 
-
-# define the API key, define the endpoint, define the header
 YELP_API_KEY = os.environ.get('YELP_API_KEY')
 ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
 HEADERS = {'Authorization': 'bearer %s' % YELP_API_KEY}
 
 
-def get_businesses():
+def get_businesses(zip_code_search):
     """Query Yelp API for businesses according to search parameters."""
     
-    # list of searches for the parameters to loop through
     food_query = db.session.query(Seinfood.food_category)
     food_list = food_query.filter(Seinfood.category_active == True).all()
 
-    # dict to send the data to render template
     business_dict = {}
+    # business_url = []
 
     for item in food_list:
         # calibrating search terms; limit 1 for 1 each search term; can adjust categories.
@@ -32,14 +30,19 @@ def get_businesses():
                       'limit': 1,
                       'radius': 20000,
                       'categories': 'food', 
-                      'location': '94609'}
+                      'location': zip_code_search,
+                      }
         response = requests.get(url = ENDPOINT, 
                                 params = parameters, 
                                 headers = HEADERS)
         business_data = response.json()
         # key into businesses (other keys 'total' and 'region')
         for biz in business_data['businesses']:
-            # add business name and address to dict
             business_dict[biz['name']] = biz['location']['display_address']
+            # business_url.append(biz['url'])
 
     return business_dict
+
+if __name__ == '__main__':
+    from server import app
+    connect_to_db(app)
