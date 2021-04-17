@@ -191,12 +191,10 @@ def where_are_they_now():
 @app.route('/zip-code')
 def get_zip_code():
 
-    zip_code_search = request.args.get("zip-code")
-    print("ZIP CODE1", zip_code_search)
-
-    
-   
+    zip_code_search = request.args.get("zip-code")   
     dict_of_businesses = sein_yelp.get_businesses(zip_code_search)
+    print("BIZ DICT", dict_of_businesses)
+
     
     return render_template('seinfood.html',
                             dict_of_businesses=dict_of_businesses,
@@ -206,10 +204,6 @@ def get_zip_code():
 @app.route('/food-locator')
 def load_seinfood():
     """Loads Seinfeld Food Locator page."""
-
-
-    
- 
     
         # business_url = sein_yelp.get_businesses()
 

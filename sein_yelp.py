@@ -26,6 +26,7 @@ def get_businesses(zip_code_search):
         # calibrating search terms; limit 1 for 1 each search term; can adjust categories.
         # categories can have multiple arguments (comma no space) but businesses will contain all args. 
         # Ex: categories: chinese,bar -- result will look for places that are both chinese and have a bar.
+
         parameters = {'term': item,
                       'limit': 1,
                       'radius': 20000,
@@ -36,9 +37,17 @@ def get_businesses(zip_code_search):
                                 params = parameters, 
                                 headers = HEADERS)
         business_data = response.json()
+
         # key into businesses (other keys 'total' and 'region')
         for biz in business_data['businesses']:
-            business_dict[biz['name']] = biz['location']['display_address']
+            str_plus_str = []
+            str_plus_str.append(biz['name'])
+            str_plus_str.append(biz['location']['display_address'])
+            new_list = []
+            for place in str_plus_str:
+                new_list.append(place)
+
+            business_dict[item] = new_list
             # business_url.append(biz['url'])
 
     return business_dict

@@ -43,7 +43,7 @@
             <ul>
                
             {% for key, value in dict_of_businesses.items() %}
-                <li>{{ key }}: {% for item in value %}{{ item }} {% endfor %}</li>
+                <li>{{ key[0] }}: {{ value[0] }} {{ value[1][0] }}</li>
             {% endfor %}
         
             </ul>
