@@ -15,15 +15,7 @@ app.secret_key = "sehn"
 
 @app.route ('/')
 def homepage():
-    """Loads Festivus countdown + bot chat."""
-
-
-    ########## Festivus countdown #################
-    todays_date = arrow.now('US/Pacific')
-    festivus_date = arrow.get(2021, 12, 23)
-    days_left = festivus_date - todays_date
-
-    
+    """Loads homepage + bot chat."""
 
     ########## Bot chat ###########################
     #### USER NAME #################################
@@ -117,7 +109,6 @@ def homepage():
     # print("USER MESSAGES", user_messages)
 
     return render_template('homepage.html',
-                            days_left=days_left.days,
                             user_messages=user_messages,
                             user_name=user_name_display,
                             bot_responses=bot_responses,
@@ -204,8 +195,20 @@ def load_seinfood():
         # business_url = sein_yelp.get_businesses()
 
     return render_template('seinfood.html',
-
                             # business_url=business_url,
+                            )
+
+
+@app.route('/festivus')
+def load_festivus():
+    """Load Festivus countdown page."""
+
+    todays_date = arrow.now('US/Pacific')
+    festivus_date = arrow.get(2021, 12, 23)
+    days_left = festivus_date - todays_date
+
+    return render_template('festivus.html',
+                            days_left=days_left.days,
                             )
 
 

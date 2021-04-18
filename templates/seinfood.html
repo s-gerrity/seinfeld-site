@@ -12,7 +12,7 @@
     </head>
 
     <header class="subpage-header">
-        <h2>Seinfeld Food Locator</h2>
+        <h1>Seinfeld Food Locator</h1>
     </header>
 
     <body>
@@ -21,6 +21,7 @@
                 <li><a href="/">Home Page</a></li>
                 <li><a href="/#bot-chat">Character Bot</a></li>
                 <li><a href="/where-are-they-now">Where Are They Now?</a></li>
+                <li><a href="/festivus">Festivus Countdown</a></li>
             </ol>
         </nav>
 
@@ -46,7 +47,7 @@
         </div>
         {% if zip_code_search %}
         <div class="food-results">
-            <h3>Places: </h3>
+            <h2>Places: </h2>
             <ul>
                
             {% for key, value in dict_of_businesses.items() %}

@@ -5,7 +5,7 @@
     </head>
 
     <header class="subpage-header">
-        <h2>Where Are They Now?</h2>
+        <h1>Where Are They Now?</h1>
     </header>
 
 
@@ -15,6 +15,8 @@
                 <li><a href="/">Home Page</a></li>
                 <li><a href="/#bot-chat">Character Bot</a></li>
                 <li><a href="/food-locator">SeinFood Locator</a></li>
+                <li><a href="/festivus">Festivus Countdown</a></li>
+
             </ol>
         </nav>
 
@@ -27,9 +29,9 @@
         </div>
             
         <div class="jerry-twitter">
-            <h3>Jerry Seinfeld as 'Jerry' on 'Seinfeld'</h3>
+            <h2>Jerry Seinfeld as 'Jerry' on 'Seinfeld'</h2>
             <img src="{{ jerry_twitter_profile_image }}">
-            <h4>Twitter handle: <a href="https://twitter.com/jerryseinfeld">@jerryseinfeld</a></h4><br>
+            <p>Twitter handle: <a href="https://twitter.com/jerryseinfeld">@jerryseinfeld</a></p><br>
             <p>Last 5 tweets</p>
             {% for i in range(jerry_tweet_dates|length) %}
             <p><strong>{{ jerry_tweet_dates[i] }}: </strong>{{ jerry_tweets[i] }} <strong>Likes: </strong>{{ jerry_likes[i] }}</p>
@@ -37,9 +39,9 @@
         </div>
 
         <div class="julia-twitter">
-            <h3>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h3>
+            <h2>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h2>
             <img src="{{ julia_twitter_profile_image }}">
-            <h4>Twitter handle: <a href="https://twitter.com/officialjld?lang=en">@officialjld</a></h4><br>
+            <p>Twitter handle: <a href="https://twitter.com/officialjld?lang=en">@officialjld</a></p><br>
             <p>Last 5 tweets</p>
             {% for i in range(julia_tweet_dates|length) %}
             <p><strong>{{ julia_tweet_dates[i] }}: </strong>{{ julia_tweets[i] }} <strong>Likes: </strong>{{ julia_likes[i] }}</p>
@@ -47,10 +49,10 @@
         </div> 
 
         <div class="jason-twitter">
-            <h3>Jason Alexander as 'George' on 'Seinfeld'</h3>
+            <h2>Jason Alexander as 'George' on 'Seinfeld'</h2>
             <img src="{{ jason_twitter_profile_image }}">
-            <h4>Twitter handle: <a href="https://twitter.com/IJasonAlexander?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-                @IJasonAlexander</a></h4><br>
+            <p>Twitter handle: <a href="https://twitter.com/IJasonAlexander?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                @IJasonAlexander</a></p><br>
             <p>Last 5 tweets</p>
             {% for i in range(jason_tweet_dates|length) %}
             <p><strong>{{ jason_tweet_dates[i] }}: </strong>{{ jason_tweets[i] }} <strong>Likes: </strong>{{ jason_likes[i] }}</p>
@@ -59,9 +61,9 @@
 
 
         <div class="modern-twitter">
-            <h3>Bonus: A take on how episodes might have gone in the 2010's</h3>
+            <h2>Bonus: A take on how episodes might have gone in the 2010's</h2>
             <img src="{{ modern_twitter_profile_image }}">
-            <h4>Twitter handle: <a href="https://twitter.com/modern_seinfeld?lang=en">@modern_seinfeld</a></h4><br>
+            <p>Twitter handle: <a href="https://twitter.com/modern_seinfeld?lang=en">@modern_seinfeld</a></p><br>
             <p>Last 5 tweets</p>
             {% for i in range(modern_tweet_dates|length) %}
             <p><strong>{{ modern_tweet_dates[i] }}: </strong>{{ modern_tweets[i] }} <strong>Likes: </strong>{{ modern_likes[i] }}</p>
