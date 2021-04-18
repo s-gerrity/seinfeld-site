@@ -160,7 +160,6 @@ def where_are_they_now():
     modern_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Modern Seinfeld')
     modern_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Modern Seinfeld')
     modern_likes = sein_twit.tweet_likes(tweet_screen_name, 'Modern Seinfeld')
-    
 
     return render_template('where-are-they-now.html',
                             jerry_twitter_profile_image=jerry_twitter_profile_image,
@@ -186,20 +185,17 @@ def where_are_they_now():
                             )
 
 
-
-
 @app.route('/zip-code')
 def get_zip_code():
 
     zip_code_search = request.args.get("zip-code")   
     dict_of_businesses = sein_yelp.get_businesses(zip_code_search)
-    print("BIZ DICT", dict_of_businesses)
-
     
     return render_template('seinfood.html',
                             dict_of_businesses=dict_of_businesses,
                             zip_code_search=zip_code_search,
                     )
+
 
 @app.route('/food-locator')
 def load_seinfood():
@@ -211,6 +207,7 @@ def load_seinfood():
 
                             # business_url=business_url,
                             )
+
 
 if __name__ == '__main__':
 
