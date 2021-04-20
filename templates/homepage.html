@@ -4,92 +4,25 @@
         <title>The Ultimate Seinfeld Experience</title>
     </head>
 
-
     <header class="page-header">
         <h1>The Ultimate Seinfeld Experience </h1>
     </header>
 
-
-
     <body>
         <nav class="nav-bar">
             <ol>
-                <li><a href="#bot-chat">Character Bot</a></li>
+                <li><a href="/character-chat">Character Bot</a></li>
                 <li><a href="/where-are-they-now">Where Are They Now?</a></li>
                 <li><a href="/food-locator">SeinFood Locator</a></li>
                 <li><a href="/festivus">Festivus Countdown</a></li>
-
             </ol>
         </nav>
-
-
-
-
-
-
-        <div class="bot-chat">
-            <h3 id="bot-chat">Chat with a Seinfeld character bot!</h3>
-            <p>Pick a character from the show to have an instant-message conversation with.</p>
-            
-            <form action="/">
-                
-                <select name="character-bot">
-                    <!-- the character who was sent a chat is automaticallt selected for the next message in session -->
-                    <option value="Jerry"{% if bot_name == 'Jerry' %} selected{% endif %}>Jerry</option>
-                    <option value="George"{% if bot_name == 'George' %} selected{% endif %}>George</option>
-                    <option value="Elaine"{% if bot_name == 'Elaine' %} selected{% endif %}>Elaine</option>
-                    <option value="Kramer"{% if bot_name == 'Kramer' %} selected{% endif %}>Kramer</option>
-                </select>
-            
-                <div class="transcript">
-                    <!-- for how many messages are saved in the session, show that many messages with
-                    a bot response-->
-                
-                    <!-- user_messages session holds "None" in session upon load, making len=1-->
-                    {% for i in range(user_messages|length) %}
-                        
-                        {% if user_messages[i+1] %}<p id="user-line">{{ user_name }}: {{ user_messages[i+1] }}</p><br>
-                        {% if bot_responses[i] %}<p id="bot-line">{{ bot_name }}: {{ bot_responses[i] }}</p><br>{% endif %}{% endif %}
-        
-                    {% endfor %}
-        
-                </div>
-
-
-
-                <br>
-             
-                <p>Make up a username for your chat.</p>
-           
-                <label for="username">Username:</label>
-                <input type="username" id="username" name ="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %}><br><br>
-                <textarea rows="3" cols="30" name="user-input" id=#user-input></textarea>
-                <br>     
-                <input type="submit" value="Submit" id="submit-button">
-                <br>
-                
-            </form>
-        </div>
-
-            
-            <div class="end-convo">
-                <p>To chat with a different character, end the conversation then choose a new name from the top.</p>
-                <form action="/clear" method="GET">     
-                    <input type="submit" value="End Chat" id="end-convo">
-                </form>
-            </div>
-                
-            
-        
-        <script src="/static/js/action.js"></script>
     </body>
-
+    
     <footer>
         <p>You are the {{ counter }} visitor to the site!</p>
         <!-- found hit counter online -->
         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits">
         <p>Sam Gerrity Industries 2021</p>
     </footer>
- 
-
 </html>

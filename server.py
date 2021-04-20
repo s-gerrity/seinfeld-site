@@ -15,104 +15,10 @@ app.secret_key = "sehn"
 
 @app.route ('/')
 def homepage():
-    """Loads homepage + bot chat."""
+    """Loads homepage."""
 
-    ########## Bot chat ###########################
-    #### USER NAME #################################
-    user_name_input = request.args.get("username")
-
-    # if user in session's username is not blank
-    if user_name_input != "":
-
-        # assign their username as the value in session
-        session['user_name_key'] = user_name_input
- 
-
-    # a variable that holds the username
-    user_name_display = session.get('user_name_key', None)
-  
-
-    # if the username wasn't entered, use the previous username
-    if 'user_name_key' not in session:
-        session['user_name_key'] = user_name_display
-
-    
-
-    ########## USER MESSAGE #######################
-    user_message = request.args.get("user-input")
-
-    # start collecting user message input into an empty list 
-    # value and always append into the list (value)
-    if 'user_messages_key' not in session:
-        session['user_messages_key'] = []
-        session['user_messages_key'].append(user_message)
-
-    # if there are messages in session, add them to the users value
-    else:
-        session['user_messages_key'].append(user_message)
-
-
-
-    ###### BOT NAME / CHAR SELECTION ####################
-    bot_char = request.args.get("character-bot")
-
-    # upon first load, None is the char. Save all 
-    # selections after that to a session
-    if bot_char != None:
-
-        session['bot_name_key'] = bot_char
-
-    # save select char as value and show through jinja display
-    if bot_char != 'no_selection':
-
-        session['bot_name_key'] = bot_char
-        bot_char_display = session['bot_name_key'] 
-    
-    # save the bot selected to the display
-    bot_char_display = session['bot_name_key']
-
-    # show previous selected char
-    if 'bot_name_key' not in session:
-        session['bot_name_key'] = bot_char_display
-
-
-
-    ####### BOT RESPONSE ##########################
-
-    # create a session value list to collect bot responses
-    if 'bot_responses_key' not in session:
-
-        # hold place for bot response
-        session['bot_responses_key'] = []
-
-    # if there is a list in session, add a new message to the bot response session
-    elif bot_char_display != None:
-        # dict for bot character names with matching id to iterate through for query creation
-        char_name_id = {"Jerry": 1, "George": 2, "Elaine": 3, "Kramer": 4}
-        # to query a random bot response, first pull response options and count total
-        count_queries = BotResponse.query.filter(BotResponse.bot_id == char_name_id[bot_char_display]).count()          
-        # when querying random responses, offset skips to the random num. Need to 
-        # reduce total by 1 
-        offset_num = count_queries - 1
-        # get a random num between 1 and total options
-        rand_num = random.randint(1, offset_num)       
-        # query the response option that is the random num (remember that offset skips to the option above)
-        bot_response = BotResponse.query.filter(BotResponse.bot_id == char_name_id[bot_char_display]).offset(rand_num).first()
-        # add the response to the session
-        session['bot_responses_key'].append(str(bot_response))
-      
-    # print("USER NAME 1", user_name_display)
-    # print("BOT NAME 1", bot_char_display)
-    user_messages = session['user_messages_key']
-    bot_responses = session['bot_responses_key']
-    # print("USER NAME 2", user_name_display)
-    # print("USER MESSAGES", user_messages)
 
     return render_template('homepage.html',
-                            user_messages=user_messages,
-                            user_name=user_name_display,
-                            bot_responses=bot_responses,
-                            bot_name=bot_char_display
                             )
 
 
@@ -152,6 +58,11 @@ def where_are_they_now():
     modern_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Modern Seinfeld')
     modern_likes = sein_twit.tweet_likes(tweet_screen_name, 'Modern Seinfeld')
 
+    recent_tweet_url = sein_twit.recent_tweets_url(tweet_screen_name, 'Jerry')
+    tweet_expanded_url = sein_twit.tweets_expanded_url(tweet_screen_name, 'Jerry')
+    twitter_username = sein_twit.get_twitter_username(tweet_screen_name, 'Jerry')
+    twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jerry')
+
     return render_template('where-are-they-now.html',
                             jerry_twitter_profile_image=jerry_twitter_profile_image,
                             jerry_tweet_dates=jerry_tweet_dates,
@@ -172,6 +83,11 @@ def where_are_they_now():
                             modern_tweet_dates=modern_tweet_dates,
                             modern_tweets=modern_tweets,
                             modern_likes=modern_likes,
+
+                            recent_tweet_url=recent_tweet_url,
+                            tweet_expanded_url=tweet_expanded_url,
+                            twitter_username=twitter_username,
+                            twitter_handle=twitter_handle,
                             
                             )
 
@@ -209,6 +125,90 @@ def load_festivus():
 
     return render_template('festivus.html',
                             days_left=days_left.days,
+                            )
+
+
+
+@app.route('/character-chat')
+def load_character_chat():
+
+    #### USER NAME #################################
+    user_name_input = request.args.get("username")
+
+    # if user in session's username is not blank
+    if user_name_input != "":
+        session['user_name_key'] = user_name_input
+ 
+    # a variable that holds the username
+    user_name_display = session.get('user_name_key', None)
+
+    # if the username wasn't entered, use the previous username
+    if 'user_name_key' not in session:
+        session['user_name_key'] = user_name_display
+
+    
+
+    ########## USER MESSAGE #######################
+    user_message = request.args.get("user-input")
+
+    # start collecting user message input into an empty list 
+    if 'user_messages_key' not in session:
+        session['user_messages_key'] = []
+        session['user_messages_key'].append(user_message)
+    else:
+        session['user_messages_key'].append(user_message)
+
+
+
+    ###### BOT NAME / CHAR SELECTION ####################
+    bot_char = request.args.get("character-bot")
+
+    # upon first load, None is the char
+    if bot_char != None:
+        session['bot_name_key'] = bot_char
+
+    # save select char as value and show through jinja display
+    if bot_char != 'no_selection':
+
+        session['bot_name_key'] = bot_char
+        bot_char_display = session['bot_name_key'] 
+    
+    bot_char_display = session['bot_name_key']
+
+    # show previous selected char
+    if 'bot_name_key' not in session:
+        session['bot_name_key'] = bot_char_display
+
+
+
+    ####### BOT RESPONSE ##########################
+
+    # create a session value list to collect bot responses
+    if 'bot_responses_key' not in session:
+        session['bot_responses_key'] = []
+
+    elif bot_char_display != None:
+        char_name_id = {"Jerry": 1, "George": 2, "Elaine": 3, "Kramer": 4}
+        # to query a random bot response, first pull response options and count total
+        count_queries = BotResponse.query.filter(BotResponse.bot_id == char_name_id[bot_char_display]).count()          
+        # when querying random responses, offset skips to the num after. Need to reduce total by 1.
+        offset_num = count_queries - 1
+        rand_num = random.randint(1, offset_num)       
+        bot_response = BotResponse.query.filter(BotResponse.bot_id == char_name_id[bot_char_display]).offset(rand_num).first()
+        session['bot_responses_key'].append(str(bot_response))
+      
+    print("USER NAME 1", user_name_display)
+    print("BOT NAME 1", bot_char_display)
+    user_messages = session['user_messages_key']
+    bot_responses = session['bot_responses_key']
+    print("USER NAME 2", user_name_display)
+    print("USER MESSAGES", user_messages)
+
+    return render_template('character_chat.html',
+                            user_messages=user_messages,
+                            user_name=user_name_display,
+                            bot_responses=bot_responses,
+                            bot_name=bot_char_display,
                             )
 
 

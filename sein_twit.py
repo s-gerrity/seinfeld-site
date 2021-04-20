@@ -67,6 +67,62 @@ def get_profile_image(tweet_screen_name, person):
 
         return twitter_profile_image
 
+    
+def recent_tweets_url(tweet_screen_name, person):
+    """Pull last 5 tweets from user, sans re-tweets."""
+
+    
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
+                                                  include_rts=False, 
+                                                  tweet_mode='extended',
+                                                  ).items(5):
+        twitter_image = tweet.user.url
+
+    return twitter_image
+
+
+def tweets_expanded_url(tweet_screen_name, person):
+    """Pull last 5 tweets from user, sans re-tweets."""
+
+    
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
+                                                  include_rts=False, 
+                                                  tweet_mode='extended',
+                                                  ).items(5):
+        twitter_user_name = tweet.user.name
+        twitter_id = tweet.id
+
+        twitter_expanded_url = f"https://twitter.com/{twitter_user_name}/status/{twitter_id}"
+       
+
+    return twitter_expanded_url
+
+
+def get_twitter_username(tweet_screen_name, person):
+    """Pull last 5 tweets from user, sans re-tweets."""
+
+
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
+                                                    include_rts=False, 
+                                                    tweet_mode='extended',
+                                                    ).items(5):
+        twitter_username = tweet.user.name
+
+    return twitter_username
+
+
+def get_twitter_handle(tweet_screen_name, person):
+    """Pull last 5 tweets from user, sans re-tweets."""
+
+
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
+                                                    include_rts=False, 
+                                                    tweet_mode='extended',
+                                                    ).items(5):
+        twitter_handle = tweet.user.screen_name
+
+    return twitter_handle
+
 
 if __name__ == '__main__':
     from server import app
