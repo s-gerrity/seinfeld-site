@@ -2,43 +2,11 @@
 <html>
     <head>
         <title>Where Are They Now?</title>
-        <script>window.twttr = (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-              t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          
-            t._e = [];
-            t.ready = function(f) {
-              t._e.push(f);
-            };
-          
-            return t;
-          }(document, "script", "twitter-wjs"));</script>
     </head>
 
     <header class="subpage-header">
         <h1>Where Are They Now?</h1>
     </header>
-
-    <blockquote class="twitter-tweet">
-        {% for i in range(jerry_tweet_dates|length) %}
-        <!-- raw text for the tweet - not sure yet why we need this -->
-        <p lang="en" dir="ltr">
-            
-            {{ jerry_tweets[i] }}</p>
-        
-        <!-- user name and handle -->
-        &mdash; {{ twitter_username }} (@{{ twitter_handle }})
-        <!-- link to tweet with raw date of tweet -->
-        <a href="{{ tweet_expanded_url }}">{{ jerry_tweet_dates[i] }}</a> 
-      
-        <!-- js/json for embedding tweet -->
-      </blockquote> 
-        {% endfor %}
 
     <body>
         <nav class="nav-bar">
@@ -47,11 +15,8 @@
                 <li><a href="/character-chat">Character Bot</a></li>
                 <li><a href="/food-locator">SeinFood Locator</a></li>
                 <li><a href="/festivus">Festivus Countdown</a></li>
-
             </ol>
         </nav>
-
-
 
         <div class="page-description">
             <p>We love Seinfeld the show. Its final episode was in 1998, but that doesn't 
@@ -59,69 +24,63 @@
                 Twitter. Check out their most recent tweets.</p>
         </div>
 
-        <blockquote class="twitter-tweet">
-            
-            <p lang="en" dir="ltr">
-                Pleased to see the return of Robert Cumberford to 
-                
-                <a href="https://twitter.com/SportsCarMarket?ref_src=twsrc%5Etfw">
-                    @SportsCarMarket
-                </a> 
-                this month. His design analyses only surpassed by his beautifully made sentences. I could write a monthly column just about how well he writes.</p>
-                
-                &mdash; Jerry Seinfeld (@JerrySeinfeld) 
-                
-                <a href="https://twitter.com/JerrySeinfeld/status/1381608900923944963?ref_src=twsrc%5Etfw">
-                    April 12, 2021
-                </a>
-            
-            </blockquote> 
-
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-        </script>
-        
-        </blockquote> 
-
-            
-        <!-- <div class="jerry-twitter">
+        <div class="jerry-twitter">
             <h2>Jerry Seinfeld as 'Jerry' on 'Seinfeld'</h2>
-            <img src="{{ jerry_twitter_profile_image }}">
-            <p>Twitter handle: <a href="https://twitter.com/jerryseinfeld">@jerryseinfeld</a></p><br>
+            <br>
             <p>Last 5 tweets</p>
-            {% for i in range(jerry_tweet_dates|length) %}
-            <p><strong>{{ jerry_tweet_dates[i] }}: </strong>{{ jerry_tweets[i] }} <strong>Likes: </strong>{{ jerry_likes[i] }}</p>
-            {% endfor %}
-        </div> -->
-
-        <div class="julia-twitter">
-            <h2>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h2>
-            <img src="{{ julia_twitter_profile_image }}">
-            <p>Twitter handle: <a href="https://twitter.com/officialjld?lang=en">@officialjld</a></p><br>
-            <p>Last 5 tweets</p>
-            {% for i in range(julia_tweet_dates|length) %}
-            <p><strong>{{ julia_tweet_dates[i] }}: </strong>{{ julia_tweets[i] }} <strong>Likes: </strong>{{ julia_likes[i] }}</p>
-            {% endfor %}
-        </div> 
-
-        <div class="jason-twitter">
-            <h2>Jason Alexander as 'George' on 'Seinfeld'</h2>
-            <img src="{{ jason_twitter_profile_image }}">
-            <p>Twitter handle: <a href="https://twitter.com/IJasonAlexander?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-                @IJasonAlexander</a></p><br>
-            <p>Last 5 tweets</p>
-            {% for i in range(jason_tweet_dates|length) %}
-            <p><strong>{{ jason_tweet_dates[i] }}: </strong>{{ jason_tweets[i] }} <strong>Likes: </strong>{{ jason_likes[i] }}</p>
+        
+            {% for i in range(jerry_tweet_ids|length) %}
+                <blockquote class="twitter-tweet">
+                    <a href="https://twitter.com/{{ jerry_twitter_handle }}/status/{{ jerry_tweet_ids[i] }}">
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                    </script>
+                </blockquote> 
             {% endfor %}
         </div>
 
+        <div class="julia-twitter">
+            <h2>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h2>
+            <br>
+            <p>Last 5 tweets</p>
+        
+            {% for i in range(julia_tweet_ids|length) %}
+                <blockquote class="twitter-tweet">
+                    <a href="https://twitter.com/{{ julia_twitter_handle }}/status/{{ julia_tweet_ids[i] }}">
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                    </script>
+                </blockquote> 
+            {% endfor %}
+        </div>
+
+        <div class="jason-twitter">
+            <h2>Jason Alexander as 'George' on 'Seinfeld'</h2>
+            <br>
+            <p>Last 5 tweets</p>
+        
+            {% for i in range(jason_tweet_ids|length) %}
+                <blockquote class="twitter-tweet">
+                    <a href="https://twitter.com/{{ jason_twitter_handle }}/status/{{ jason_tweet_ids[i] }}">
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                    </script>
+                </blockquote> 
+            {% endfor %}
+        </div>
 
         <div class="modern-twitter">
             <h2>Bonus: A take on how episodes might have gone in the 2010's</h2>
-            <img src="{{ modern_twitter_profile_image }}">
-            <p>Twitter handle: <a href="https://twitter.com/modern_seinfeld?lang=en">@modern_seinfeld</a></p><br>
+            <br>
             <p>Last 5 tweets</p>
-            {% for i in range(modern_tweet_dates|length) %}
-            <p><strong>{{ modern_tweet_dates[i] }}: </strong>{{ modern_tweets[i] }} <strong>Likes: </strong>{{ modern_likes[i] }}</p>
+        
+            {% for i in range(modern_tweet_ids|length) %}
+                <blockquote class="twitter-tweet">
+                    <a href="https://twitter.com/{{ modern_twitter_handle }}/status/{{ modern_tweet_ids[i] }}">
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                    </script>
+                </blockquote> 
             {% endfor %}
         </div>
     </body>

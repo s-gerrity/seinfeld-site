@@ -17,13 +17,12 @@ app.secret_key = "sehn"
 def homepage():
     """Loads homepage."""
 
-
-    return render_template('homepage.html',
-                            )
+    return render_template('homepage.html')
 
 
 @app.route('/clear')
 def clear():
+    """Clears session with 'end convo' button."""
 
     session.clear()
     return redirect('/')
@@ -31,69 +30,43 @@ def clear():
 
 @app.route('/where-are-they-now')
 def where_are_they_now():
-    """Loads tweets from Twitter API."""
+    """Loads WATN page & tweets from Twitter API."""
 
     tweet_screen_name = {'Jerry': 'jerryseinfeld', 
                         'Julia': 'officialjld', 
                         'Jason': 'IJasonAlexander', 
-                        'Modern Seinfeld': 'modern_seinfeld'}
+                        'Modern': 'modern_seinfeld'}
 
-    jerry_twitter_profile_image = sein_twit.get_profile_image(tweet_screen_name, 'Jerry')
-    jerry_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Jerry')
-    jerry_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jerry')
-    jerry_likes = sein_twit.tweet_likes(tweet_screen_name, 'Jerry')
+    jerry_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jerry')
+    jerry_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Jerry')
 
-    julia_twitter_profile_image = sein_twit.get_profile_image(tweet_screen_name, 'Julia')
-    julia_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Julia')
-    julia_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Julia')
-    julia_likes = sein_twit.tweet_likes(tweet_screen_name, 'Julia')
+    julia_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Julia')
+    julia_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Julia')
     
-    jason_twitter_profile_image = sein_twit.get_profile_image(tweet_screen_name, 'Jason')
-    jason_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Jason')
-    jason_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Jason')
-    jason_likes = sein_twit.tweet_likes(tweet_screen_name, 'Jason')
+    jason_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jason')
+    jason_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Jason')
 
-    modern_twitter_profile_image = sein_twit.get_profile_image(tweet_screen_name, 'Modern Seinfeld')
-    modern_tweet_dates = sein_twit.created_at_date(tweet_screen_name, 'Modern Seinfeld')
-    modern_tweets = sein_twit.recent_tweets_text(tweet_screen_name, 'Modern Seinfeld')
-    modern_likes = sein_twit.tweet_likes(tweet_screen_name, 'Modern Seinfeld')
-
-    recent_tweet_url = sein_twit.recent_tweets_url(tweet_screen_name, 'Jerry')
-    tweet_expanded_url = sein_twit.tweets_expanded_url(tweet_screen_name, 'Jerry')
-    twitter_username = sein_twit.get_twitter_username(tweet_screen_name, 'Jerry')
-    twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jerry')
+    modern_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Modern')
+    modern_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Modern')
 
     return render_template('where-are-they-now.html',
-                            jerry_twitter_profile_image=jerry_twitter_profile_image,
-                            jerry_tweet_dates=jerry_tweet_dates,
-                            jerry_tweets=jerry_tweets,
-                            jerry_likes=jerry_likes,
+                            jerry_twitter_handle=jerry_twitter_handle,
+                            jerry_tweet_ids=jerry_tweet_ids,
 
-                            julia_twitter_profile_image=julia_twitter_profile_image,
-                            julia_tweets=julia_tweets,
-                            julia_tweet_dates=julia_tweet_dates,
-                            julia_likes=julia_likes,
+                            julia_twitter_handle=julia_twitter_handle,
+                            julia_tweet_ids=julia_tweet_ids,
 
-                            jason_twitter_profile_image=jason_twitter_profile_image,
-                            jason_tweet_dates=jason_tweet_dates,
-                            jason_tweets=jason_tweets,
-                            jason_likes=jason_likes,
+                            jason_twitter_handle=jason_twitter_handle,
+                            jason_tweet_ids=jason_tweet_ids,
                             
-                            modern_twitter_profile_image=modern_twitter_profile_image,
-                            modern_tweet_dates=modern_tweet_dates,
-                            modern_tweets=modern_tweets,
-                            modern_likes=modern_likes,
-
-                            recent_tweet_url=recent_tweet_url,
-                            tweet_expanded_url=tweet_expanded_url,
-                            twitter_username=twitter_username,
-                            twitter_handle=twitter_handle,
-                            
+                            modern_twitter_handle=modern_twitter_handle,
+                            modern_tweet_ids=modern_tweet_ids,
                             )
 
 
 @app.route('/zip-code')
 def get_zip_code():
+    """Loads search results when user submits a zip code."""
 
     zip_code_search = request.args.get("zip-code")   
     dict_of_businesses = sein_yelp.get_businesses(zip_code_search)
@@ -117,7 +90,7 @@ def load_seinfood():
 
 @app.route('/festivus')
 def load_festivus():
-    """Load Festivus countdown page."""
+    """Loads Festivus countdown page."""
 
     todays_date = arrow.now('US/Pacific')
     festivus_date = arrow.get(2021, 12, 23)
@@ -128,9 +101,9 @@ def load_festivus():
                             )
 
 
-
 @app.route('/character-chat')
 def load_character_chat():
+    """Loads character chat page & execute conversation."""
 
     #### USER NAME #################################
     user_name_input = request.args.get("username")
@@ -139,7 +112,6 @@ def load_character_chat():
     if user_name_input != "":
         session['user_name_key'] = user_name_input
  
-    # a variable that holds the username
     user_name_display = session.get('user_name_key', None)
 
     # if the username wasn't entered, use the previous username
@@ -147,7 +119,6 @@ def load_character_chat():
         session['user_name_key'] = user_name_display
 
     
-
     ########## USER MESSAGE #######################
     user_message = request.args.get("user-input")
 
@@ -157,7 +128,6 @@ def load_character_chat():
         session['user_messages_key'].append(user_message)
     else:
         session['user_messages_key'].append(user_message)
-
 
 
     ###### BOT NAME / CHAR SELECTION ####################
@@ -180,7 +150,6 @@ def load_character_chat():
         session['bot_name_key'] = bot_char_display
 
 
-
     ####### BOT RESPONSE ##########################
 
     # create a session value list to collect bot responses
@@ -196,13 +165,9 @@ def load_character_chat():
         rand_num = random.randint(1, offset_num)       
         bot_response = BotResponse.query.filter(BotResponse.bot_id == char_name_id[bot_char_display]).offset(rand_num).first()
         session['bot_responses_key'].append(str(bot_response))
-      
-    print("USER NAME 1", user_name_display)
-    print("BOT NAME 1", bot_char_display)
+
     user_messages = session['user_messages_key']
     bot_responses = session['bot_responses_key']
-    print("USER NAME 2", user_name_display)
-    print("USER MESSAGES", user_messages)
 
     return render_template('character_chat.html',
                             user_messages=user_messages,
