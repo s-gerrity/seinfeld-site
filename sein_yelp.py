@@ -43,6 +43,7 @@ def get_businesses(zip_code_search):
             biz_details = []
             biz_details.append(biz['name'])
             biz_details.append(biz['location']['display_address'])
+
             business_dict[item] = biz_details
             # business_url.append(biz['url'])
 

@@ -80,11 +80,8 @@ def get_zip_code():
 @app.route('/food-locator')
 def load_seinfood():
     """Loads Seinfeld Food Locator page."""
-    
-        # business_url = sein_yelp.get_businesses()
 
     return render_template('seinfood.html',
-                            # business_url=business_url,
                             )
 
 
