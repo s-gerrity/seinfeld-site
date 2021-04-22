@@ -24,7 +24,6 @@ tweet_screen_name = {'Jerry': 'jerryseinfeld',
 def get_twitter_handle(tweet_screen_name, person):
     """Gets user's Twitter handle, sans re-tweets."""
 
-
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=tweet_screen_name[person], 
                                                     include_rts=False, 
                                                     tweet_mode='extended',

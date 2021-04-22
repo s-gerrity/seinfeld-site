@@ -4,7 +4,7 @@ import os
 import requests
 from model import connect_to_db, Seinfood
 from flask_sqlalchemy import SQLAlchemy
-from server import get_zip_code
+from server import *
 
 db = SQLAlchemy()
 
@@ -20,11 +20,10 @@ def get_businesses(zip_code_search):
     food_list = food_query.filter(Seinfood.category_active == True).all()
 
     business_dict = {}
-    # business_url = []
 
     for item in food_list:
         # calibrating search terms; limit 1 for 1 each search term; can adjust categories.
-        # categories can have multiple arguments (comma no space) but businesses will contain all args. 
+        # "categories" can have multiple arguments (comma no space) but businesses will contain all args. 
         # Ex: categories: chinese,bar -- result will look for places that are both chinese and have a bar.
 
         parameters = {'term': item,
@@ -45,7 +44,6 @@ def get_businesses(zip_code_search):
             biz_details.append(biz['location']['display_address'])
 
             business_dict[item] = biz_details
-            # business_url.append(biz['url'])
 
     return business_dict
 

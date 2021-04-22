@@ -9,10 +9,7 @@
             background-color: grey;
           }
           </style>
-          <script type="text/javascript">
-
-            </script>
-        
+          <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     </head>
 
     <header class="subpage-header">
@@ -40,12 +37,12 @@
         <div class="food-locate-form">
             <h3>Dine Like the Characters!</h3>
             <form action="/zip-code">
-                <label name="zip-code">Your zip code: </label>
+                <label name="your-zip-code">Your zip code: </label>
                 <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5,5}" maxlength="5">
                 <text name="zip-user-input" id="zip-user-input"></text>
                         
                 <p><em>* 10 mile radius</em></p><br>
-                <input type="submit" value="submit" id="button">
+                <input type="submit" value="submit" id="zip-button">
                 <br>
                 <br>
             </form>
@@ -68,6 +65,6 @@
     </div>
         <script type="text/javascript" src="static/js/sein_maps.js"></script>
         <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=API&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
         </script>
 </html>

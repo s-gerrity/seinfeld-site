@@ -3,42 +3,37 @@
 from model import db, connect_to_db, BotResponse, Seinfood, Bot
 from server import app
 
+
 def make_bots():
     """Create bots with names for the database."""
 
-    # if this list gets changed, need to drop db and re-create
     bot_name_list = ['jerry_bot', 
                  'george_bot', 
                  'elaine_bot', 
                  'kramer_bot']
 
     for i in range(len(bot_name_list)):
-        # for each name in list starting at the beginning
+
         bot_to_make = bot_name_list[i]
-        # initialize a bot
         bot_creation = Bot(bot_name=bot_to_make)
-        # add bot to db
         db.session.add(bot_creation)
             
     db.session.commit()
 
 
-
 def get_responses():
     """Load response quotes from dataset into database."""
 
-    # need to load all quotes into the db
     with open("data/test_responses.tsv") as response_data:
         for i, line in enumerate(response_data):
             # if i >= 7000: # limit the number of rows read
             #     break
             bot_id,response=(line.split("#"))
-            # use split delimiter 
             db.session.add(BotResponse(bot_id=bot_id,
                                       response=response)
                                       )
-
     db.session.commit()
+
 
 def import_food_categories():
     """Load food search categories for Food Locator into the database."""
@@ -53,6 +48,7 @@ def import_food_categories():
                                     category_active=category_active)
                                     )
     db.session.commit()
+
 
 if __name__ == '__main__':
     connect_to_db(app)
