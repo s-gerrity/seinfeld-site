@@ -8,10 +8,10 @@ function initMap() {
 
   if (url.includes("zip-code")) {
     var zipCode = url.slice(-5);
-    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ zipCode +'&key=';
+    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ zipCode +'&key=AIzaSyBN7Ys5b4G0wm80VPUD8FlMsMHexHG9LdU';
     
   } else {
-      mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address=10024&key=';
+      mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address=10024&key=AIzaSyBN7Ys5b4G0wm80VPUD8FlMsMHexHG9LdU';
   }
 
   $.get(mapsApiStr, (res) => {
@@ -37,7 +37,7 @@ function initMap() {
       // location is the area you want to change
       window.location.href=`/zip-code?zip-code=${zip}`
 
-      // $.get('https://maps.googleapis.com/maps/api/geocode/json?address='+ zip +'&key=', (res) => {
+      // $.get('https://maps.googleapis.com/maps/api/geocode/json?address='+ zip +'&key=AIzaSyBN7Ys5b4G0wm80VPUD8FlMsMHexHG9LdU', (res) => {
 
       //   var newCenter = {lat: res.results[0].geometry.location.lat,
       //                   lng: res.results[0].geometry.location.lng}; 

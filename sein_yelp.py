@@ -40,6 +40,7 @@ def get_businesses(zip_code_search):
 
         # key into businesses (other keys 'total' and 'region')
         for biz in business_data['businesses']:
+            print("BIZ", biz)
             biz_details = []
             biz_details.append(biz['name'])
             biz_details.append(biz['location']['display_address'])
