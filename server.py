@@ -81,6 +81,7 @@ def get_zip_code():
 def load_seinfood():
     """Loads Seinfeld Food Locator page."""
 
+
     return render_template('seinfood.html',
                             )
 

@@ -20,6 +20,7 @@ def get_businesses(zip_code_search):
     food_list = food_query.filter(Seinfood.category_active == True).all()
 
     business_dict = {}
+    print("FOOD LIST", food_list)
 
     for item in food_list:
         # calibrating search terms; limit 1 for 1 each search term; can adjust categories.
@@ -42,10 +43,12 @@ def get_businesses(zip_code_search):
             biz_details = []
             biz_details.append(biz['name'])
             biz_details.append(biz['location']['display_address'])
+            print("ALOHA", biz_details)
 
             business_dict[item] = biz_details
 
     return business_dict
+
 
 if __name__ == '__main__':
     from server import app
