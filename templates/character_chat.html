@@ -12,6 +12,7 @@
 <body>
     <nav class="nav-bar">
         <ol>
+            <li><a href="/">Home Page</a></li>
             <li><a href="/character-chat">Character Bot</a></li>
             <li><a href="/where-are-they-now">Where Are They Now?</a></li>
             <li><a href="/food-locator">SeinFood Locator</a></li>
@@ -22,19 +23,22 @@
         <h3 id="bot-chat">Chat with a Seinfeld character bot!</h3>
         <p>Pick a character from the show to have an instant-message conversation with.</p>
         <form action="/character-chat">
-            <select name="character-bot">
-                the character who was sent a chat is automaticallt selected for the next message in session -->
+            <select name="character-bot" id="character-select">
+                <!-- the character who was sent a chat is automatically selected for the next message in session -->
                 <option value="Jerry" {% if bot_name=='Jerry' %} selected{% endif %}>Jerry</option>
                 <option value="George" {% if bot_name=='George' %} selected{% endif %}>George</option>
                 <option value="Elaine" {% if bot_name=='Elaine' %} selected{% endif %}>Elaine</option>
                 <option value="Kramer" {% if bot_name=='Kramer' %} selected{% endif %}>Kramer</option>
             </select>
-            
-            <script type="javascript">
 
+            <script type="text/javascript">
+                // hide char select dropdown if a chat is in session
+                var url = window.location.href;
+                if (url.includes("username")) {
+                    document.getElementById("character-select").style.visibility = "hidden";
+                }
+                
             </script>
-
-
 
             <div class="transcript">
                 <!-- for how many messages are saved in the session, show that many messages with
@@ -64,21 +68,20 @@
     </div>
 
         <script type="text/javascript">
-
+            // find the element with the thing youre taking
             const submitInput = document.getElementById('user-input');
-
+            // look for the action that consents to taking the thing
             submitInput.addEventListener('keydown', function(event) {
-            
+            // this is the action
             if (event.keyCode == 13) {
-
+                // dont do what would normally happen when the action is requested
                 event.preventDefault();
-
+                // instead, do this (click the submit button)
                 document.getElementById("submit-button").click();
             }
             });
         </script>
         
-    
         <div class="end-convo">
             <p>To chat with a different character, end the conversation then choose a new name from the top.</p>
             <form action="/clear" method="GET">

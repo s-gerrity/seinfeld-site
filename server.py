@@ -1,12 +1,13 @@
 """Server for The Ultimate Seinfeld Experience."""
 
 
-from flask import (Flask, render_template, request, session, redirect)
+from flask import (Flask, render_template, request, session, redirect, jsonify)
 from model import connect_to_db, Bot, BotResponse
 import arrow
 import random
 import sein_twit
 import sein_yelp
+import json
 
 app = Flask(__name__)
 
@@ -25,7 +26,8 @@ def clear():
     """Clears session with 'end convo' button."""
 
     session.clear()
-    return redirect('/')
+    
+    return redirect('/character-chat')
 
 
 @app.route('/where-are-they-now')
@@ -68,12 +70,14 @@ def where_are_they_now():
 def get_zip_code():
     """Loads search results when user submits a zip code."""
 
-    zip_code_search = request.args.get("zip-code")   
+    zip_code_search = request.args.get("zip-code")  
     dict_of_businesses = sein_yelp.get_businesses(zip_code_search)
-    
+    business_lat_lng = sein_yelp.get_business_lat_lng(zip_code_search)
+
     return render_template('seinfood.html',
                             dict_of_businesses=dict_of_businesses,
                             zip_code_search=zip_code_search,
+                            business_lat_lng=business_lat_lng,
                     )
 
 
@@ -166,6 +170,7 @@ def load_character_chat():
 
     user_messages = session['user_messages_key']
     bot_responses = session['bot_responses_key']
+    print("BOT RESPONSE", bot_responses)
 
     return render_template('character_chat.html',
                             user_messages=user_messages,
