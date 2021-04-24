@@ -65,56 +65,13 @@
     <div id="map">
     </div>
     <script type="text/javascript">
-    // var url = window.location.href;
         const latLng = {{ business_lat_lng | tojson }}
-        // console.log(`wtf is this ${wtfIsThis}`)
-    // if (url.includes("zip-code")) {
-    //     console.log("1 HELLO")
-
-    // // take the last 5 chars from the url because they are the zip code
-    //     var zipCode = url.slice(-5);
-    //     let myRequest = new Request('https://maps.googleapis.com/maps/api/geocode/json?address='+ zipCode +'&key=AIzaSyBN7Ys5b4G0wm80VPUD8FlMsMHexHG9LdU');
-    //         console.log("2", zipCode)
-    //         const myRequestUrl = myRequest.url
-    //         fetch(myRequestUrl)
-    //             .then(function(response) { 
-    //                 console.log("3 I'm in the first then, respnse is ", response)
-    //                 return response.json(); 
-    //             })
-    //             // console.log("4 JSON", response.json())
-    //             .then(function(jsonData) {
-    //                 console.log({jsonData})
-    //                 // Create an empty array. This will hold the berry names
-    //                 const businessesArray = []
-                    
-    //                 // Iterate over the dictionary results, which is list
-    //                 // of entry dictionaries. Each entry will look like:
-    //                 //   {name: "cheri", url: "https://pokeapi.co/api/v2/berry/1/"} 
-    //                 for (entry of jsonData.results) {
-    //                     // Get the berry name from the dictionary
-    //                     const business = businesses.name;
-                        
-    //                     // Add the berry name to our array
-    //                     businessesArray.push(business);
-    //                 }
-                    
-    //                 // Join the elements into the berry array into a single string
-    //                 const businessString = businessesArray.join(', ');
-                    
-    //                 // Get the paragraph we should replace with berry names
-    //                 const businessParagraph = document.getElementById("businesses-from-js-request");
-    //                 businessParagraph.innerText = businessString;
-                    
-    //             });
-    //         };
-
-
-
     </script>
 
 
-        <script type="text/javascript" src="static/js/sein_maps.js"></script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN7Ys5b4G0wm80VPUD8FlMsMHexHG9LdU&callback=initMap">
-        </script>
+    <script type="text/javascript" src="static/js/sein_maps.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+    </script>
 </html>

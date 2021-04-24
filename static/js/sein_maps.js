@@ -9,10 +9,10 @@ function initMap() {
   if (url.includes("zip-code")) {
 
     var zipCode = url.slice(-5);
-    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ zipCode +'&key=AIzaSyBN7Ys5b4G0wm80VPUD8FlMsMHexHG9LdU';
+    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ zipCode +'&key=';
     
   } else {
-    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address=10024&key=AIzaSyBN7Ys5b4G0wm80VPUD8FlMsMHexHG9LdU';
+    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address=10024&key=';
   }
   
   $.get(mapsApiStr, (res) => {
@@ -50,7 +50,7 @@ function initMap() {
 
   for (count = 0; count < Object.keys(latLng).length; count++) {
     marker = new google.maps.Marker({
-      
+
       position: new google.maps.LatLng(Object.values(latLng)[count][1], Object.values(latLng)[count][0]),
       map: map,
       title: Object.keys(latLng)[count]
