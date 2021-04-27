@@ -1,66 +1,55 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Seinfeld Local Cuisine</title>
-        <style>
-            #map {
-                height: 400px;
-                width: 100%;
-                background-color: grey;
-            }
-          </style>
-          <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    </head>
+{% extends 'base.html' %}
+
+    <title>{% block title %}Seinfeld Local Cuisine{% endblock %}</title>
+    
+    {% block content %}
+    
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+            background-color: grey;
+        }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <header class="subpage-header">
         <h1>Seinfeld Food Locator</h1>
     </header>
 
-    <body>
-        <nav class="nav-bar">
-            <ol>
-                <li><a href="/">Home Page</a></li>
-                <li><a href="/character-chat">Character Bot</a></li>
-                <li><a href="/where-are-they-now">Where Are They Now?</a></li>
-                <li><a href="/food-locator">SeinFood Locator</a></li>
-                <li><a href="/festivus">Festivus Countdown</a></li>
-            </ol>
-        </nav>
+    <div class="page-description">
+        <p>The show Seinfeld often uses food as a plot device. Sometimes the 
+            foods sound tasty, or maybe the show is the first time you're hearing
+            about this type of thing. Use the local search to see where cuisine
+            and items mentioned on the show are available near you.</p>
+    </div>
 
+    <div class="food-locate-form">
+        <h3>Dine Like the Characters!</h3>
+        <form action="/zip-code">
+            <label name="your-zip-code">Your zip code: </label>
+            <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5,5}" maxlength="5">
+            <text name="zip-user-input" id="zip-user-input"></text>
+                    
+            <p><em>* 10 mile radius</em></p><br>
+            <input type="submit" value="submit" id="zip-button">
+            <br>
+            <br>
+        </form>
+    </div>
 
-        <div class="page-description">
-            <p>The show Seinfeld often uses food as a plot device. Sometimes the 
-                foods sound tasty, or maybe the show is the first time you're hearing
-                about this type of thing. Use the local search to see where cuisine
-                and items mentioned on the show are available near you.</p>
-        </div>
-
-        <div class="food-locate-form">
-            <h3>Dine Like the Characters!</h3>
-            <form action="/zip-code">
-                <label name="your-zip-code">Your zip code: </label>
-                <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5,5}" maxlength="5">
-                <text name="zip-user-input" id="zip-user-input"></text>
-                        
-                <p><em>* 10 mile radius</em></p><br>
-                <input type="submit" value="submit" id="zip-button">
-                <br>
-                <br>
-            </form>
-        </div>
-        {% if zip_code_search %}
-        <div class="food-results">
-            <h2>Places: </h2>
-            <ul>
-               
-            {% for key, value in dict_of_businesses.items() %}
-                <li>{{ key[0] }}: {{ value[0] }} {{ value[1][0] }}, {{ value[1][1] }}</li>
-            {% endfor %}
-        
-            </ul>
-        </div>
-        {% endif %}
-    </body>
+    {% if zip_code_search %}
+    <div class="food-results">
+        <h2>Places: </h2>
+        <ul>
+            
+        {% for key, value in dict_of_businesses.items() %}
+            <li>{{ key[0] }}: {{ value[0] }} {{ value[1][0] }}, {{ value[1][1] }}</li>
+        {% endfor %}
+    
+        </ul>
+    </div>
+    {% endif %}
 
     <div id="map">
     </div>
@@ -68,10 +57,9 @@
         const latLng = {{ business_lat_lng | tojson }}
     </script>
 
-
     <script type="text/javascript" src="static/js/sein_maps.js">
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1cehJkP_rAfMP7QnCqBSzBz_4-7wFjRI&callback=initMap">
     </script>
-</html>
+{% endblock %}

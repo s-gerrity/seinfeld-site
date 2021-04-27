@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+
+    <title>{% block title %}TAB TITLE GOES HERE{% endblock %}The Ultimate Seinfeld Experience</title>
+    
+
+    {% block head %}<h1>The Ultimate Seinfeld Experience</h1>{% endblock %}
+
+
+    <nav class="nav-bar">
+        <ol>
+            <li><a href="/">Home Page</a></li>
+            <li><a href="/character-chat">Character Bot</a></li>
+            <li><a href="/where-are-they-now">Where Are They Now?</a></li>
+            <li><a href="/food-locator">SeinFood Locator</a></li>
+            <li><a href="/festivus">Festivus Countdown</a></li>
+        </ol>
+    </nav>
+</head>
+
+    {% block content %}
+    BODY CONTENT GOES HERE
+    {% endblock %}
+
+    <br>
+
+    {% block footer %}
+    {% endblock %}
+    <footer>Sam Gerrity Industries 2021</footer>
+    
+</body>
+</html>
