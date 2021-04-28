@@ -31,6 +31,10 @@ body {
     height: 32rem;
   }
   
+  #no-stretch {
+    height: 100%;
+    width: 100%;
+  }
   
   /* MARKETING CONTENT
   -------------------------------------------------- */
@@ -86,3 +90,8 @@ body {
     }
   }
   
+/* SEINFOOD */
+
+.food-locate-form {
+  align-items: center;
+}
