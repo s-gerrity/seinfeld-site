@@ -9,91 +9,78 @@
     </header>
         <div class="container">
             <div class="float-right"></div>
-            <div class="bot-chat">
-                <h2 id="bot-chat">Chat with a Seinfeld character bot!</h3>
-                <p id ="character-instructions">Pick a character from the show to have an instant-message conversation with.</p>
-                <form action="/character-chat">
-                    <select name="character-bot" id="character-select">
-                        <!-- the character who was sent a chat is automatically selected for the next message in session -->
-                        <option value="Jerry" {% if bot_name=='Jerry' %} selected{% endif %}>Jerry</option>
-                        <option value="George" {% if bot_name=='George' %} selected{% endif %}>George</option>
-                        <option value="Elaine" {% if bot_name=='Elaine' %} selected{% endif %}>Elaine</option>
-                        <option value="Kramer" {% if bot_name=='Kramer' %} selected{% endif %}>Kramer</option>
-                    </select>
-
-                    <script type="text/javascript">
-                        var url = window.location.href;
-                        if (url.includes("username")) {
-                            document.getElementById("character-select").style.visibility = "hidden";
-                        }
-
-                        var url = window.location.href;
-                        if (url.includes("username")) {
-                            document.getElementById("character-instructions").style.visibility = "hidden";
-                        }
-                        
-                    </script>
-
-                    <div class="transcript">
-                        <!-- for how many messages are saved in the session, show that many messages with
-                            a bot response-->
-
-                        <!-- user_messages session holds "None" in session upon load, making len=1-->
-                        {% for i in range(user_messages|length) %}
-
-                        {% if user_messages[i+1] %}<p id="user-line">{{ user_name }}: {{ user_messages[i+1] }}</p><br>
-                        {% if bot_responses[i] %}<p id="bot-line">{{ bot_name }}: {{ bot_responses[i] }}</p><br>{% endif %}{%
-                        endif %}
-
-                        {% endfor %}
-
-                    </div>
-                    <br>
-                    <div id="username-fields">
-                        <p>Make up a username for your chat.</p>
-
-                        <label for="username">Username:</label>
-                        <input type="username" id="username" name="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %}>
-                    </div>
-                    <br>
-                    <br>
-                    <textarea rows="3" cols="30" name="user-input" id="user-input"></textarea>
-                    <br>
-                    <input type="submit" value="Submit" id="submit-button">
-                    <br>
-
-                    <script type="text/javascript">
-                        var url = window.location.href;
-                        if (url.includes("username")) {
-                            document.getElementById("username-fields").style.visibility = "hidden";
-                        }
-                    </script>
-            
-                </form>
-           
+                <div class="bot-chat">
+                    <h2 id="bot-chat">Chat with a Seinfeld character bot!</h3>
+                    <p id ="character-instructions">Pick a character from the show to have an instant-message conversation with.</p>
+                    <form action="/character-chat">
+                        <select name="character-bot" id="character-select">
+                            <!-- the character who was sent a chat is automatically selected for the next message in session -->
+                            <option value="Jerry" {% if bot_name=='Jerry' %} selected{% endif %}>Jerry</option>
+                            <option value="George" {% if bot_name=='George' %} selected{% endif %}>George</option>
+                            <option value="Elaine" {% if bot_name=='Elaine' %} selected{% endif %}>Elaine</option>
+                            <option value="Kramer" {% if bot_name=='Kramer' %} selected{% endif %}>Kramer</option>
+                        </select>
+                        <script type="text/javascript">
+                            var url = window.location.href;
+                            if (url.includes("username")) {
+                                document.getElementById("character-select").style.visibility = "hidden";
+                            }
+                            var url = window.location.href;
+                            if (url.includes("username")) {
+                                document.getElementById("character-instructions").style.visibility = "hidden";
+                            }
+                        </script>
+                        <div class="transcript">
+                            <!-- for how many messages are saved in the session, show that many messages with
+                                a bot response-->
+                            <!-- user_messages session holds "None" in session upon load, making len=1-->
+                            {% for i in range(user_messages|length) %}
+                            {% if user_messages[i+1] %}<p id="user-line">{{ user_name }}: {{ user_messages[i+1] }}</p><br>
+                            {% if bot_responses[i] %}<p id="bot-line">{{ bot_name }}: {{ bot_responses[i] }}</p><br>{% endif %}{%
+                            endif %}
+                            {% endfor %}
+                        </div>
+                        <br>
+                        <div id="username-fields">
+                            <p>Make up a username for your chat.</p>
+                            <label for="username">Username:</label>
+                            <input type="username" id="username" name="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %}>
+                        </div>
+                        <br>
+                        <br>
+                        <textarea rows="3" cols="30" name="user-input" id="user-input"></textarea>
+                        <br>
+                        <input type="submit" value="Submit" id="submit-button">
+                        <br>
+                        <script type="text/javascript">
+                            var url = window.location.href;
+                            if (url.includes("username")) {
+                                document.getElementById("username-fields").style.visibility = "hidden";
+                            }
+                        </script>               
+                    </form>          
+                </div>
+                <script type="text/javascript">
+                    // find the element with the thing youre taking
+                    const submitInput = document.getElementById('user-input');
+                    // look for the action that consents to taking the thing
+                    submitInput.addEventListener('keydown', function(event) {
+                    // this is the action
+                    if (event.keyCode == 13) {
+                        // dont do what would normally happen when the action is requested
+                        event.preventDefault();
+                        // instead, do this (click the submit button)
+                        document.getElementById("submit-button").click();
+                    }
+                    });
+                </script>                   
+                <div class="end-convo">
+                    <p>To chat with a different character, end the conversation then choose a new name from the top.</p>
+                    <form action="/clear" method="GET">
+                        <input type="submit" value="End Chat" id="end-convo">
+                        <br>
+                    </form>
+                </div>
+            </div>
         </div>
-        <script type="text/javascript">
-            // find the element with the thing youre taking
-            const submitInput = document.getElementById('user-input');
-            // look for the action that consents to taking the thing
-            submitInput.addEventListener('keydown', function(event) {
-            // this is the action
-            if (event.keyCode == 13) {
-                // dont do what would normally happen when the action is requested
-                event.preventDefault();
-                // instead, do this (click the submit button)
-                document.getElementById("submit-button").click();
-            }
-            });
-        </script>
-            
-        <div class="end-convo">
-            <p>To chat with a different character, end the conversation then choose a new name from the top.</p>
-            <form action="/clear" method="GET">
-                    <input type="submit" value="End Chat" id="end-convo">
-                    <br>
-            </form>
-        </div>
-    </div>
-</div>
     {% endblock %}

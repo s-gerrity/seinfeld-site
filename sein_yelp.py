@@ -28,7 +28,7 @@ def get_businesses(zip_code_search):
 
         parameters = {'term': item,
                       'limit': 1,
-                      'radius': 20000,
+                      'radius': 16000,
                       'categories': 'food', 
                       'location': zip_code_search,
                       }
@@ -39,7 +39,7 @@ def get_businesses(zip_code_search):
 
         # key into businesses (other keys 'total' and 'region')
         for biz in business_data['businesses']:
-            print("BIZ", biz)
+
             biz_details = []
             biz_details.append(biz['name'])
             biz_details.append(biz['location']['display_address'])
@@ -64,7 +64,7 @@ def get_business_lat_lng(zip_code_search):
 
         parameters = {'term': item,
                       'limit': 1,
-                      'radius': 20000,
+                      'radius': 16000,
                       'categories': 'food', 
                       'location': zip_code_search,
                       }

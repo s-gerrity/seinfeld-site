@@ -6,62 +6,65 @@
     <header class="subpage-header">
         <h1>Where Are They Now?</h1>
     </header>
+    <div class="container">
+        <div class="float-right">
+            <div class="page-description">
+                <p>We love Seinfeld the show. Its final episode was in 1998, but that doesn't 
+                    mean the actors are sitting around doing more nothing. Some of them post on 
+                    Twitter. Check out their most recent tweets.</p>
+            </div>
 
-    <div class="page-description">
-        <p>We love Seinfeld the show. Its final episode was in 1998, but that doesn't 
-            mean the actors are sitting around doing more nothing. Some of them post on 
-            Twitter. Check out their most recent tweets.</p>
-    </div>
+            <div class="jerry-twitter">
+                <h2>Jerry Seinfeld as 'Jerry' on 'Seinfeld'</h2>
+            
+                {% for i in range(jerry_tweet_ids|length) %}
+                    <blockquote class="twitter-tweet">
+                        <a href="https://twitter.com/{{ jerry_twitter_handle }}/status/{{ jerry_tweet_ids[i] }}">
+                        </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                        </script>
+                    </blockquote> 
+                {% endfor %}
+            </div>
 
-    <div class="jerry-twitter">
-        <h2>Jerry Seinfeld as 'Jerry' on 'Seinfeld'</h2>
-    
-        {% for i in range(jerry_tweet_ids|length) %}
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/{{ jerry_twitter_handle }}/status/{{ jerry_tweet_ids[i] }}">
-                </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-                </script>
-            </blockquote> 
-        {% endfor %}
-    </div>
+            <div class="julia-twitter">
+                <h2>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h2>
+            
+                {% for i in range(julia_tweet_ids|length) %}
+                    <blockquote class="twitter-tweet">
+                        <a href="https://twitter.com/{{ julia_twitter_handle }}/status/{{ julia_tweet_ids[i] }}">
+                        </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                        </script>
+                    </blockquote> 
+                {% endfor %}
+            </div>
 
-    <div class="julia-twitter">
-        <h2>Julia Louis-Dreyfus as 'Elaine' on 'Seinfeld'</h2>
-    
-        {% for i in range(julia_tweet_ids|length) %}
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/{{ julia_twitter_handle }}/status/{{ julia_tweet_ids[i] }}">
-                </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-                </script>
-            </blockquote> 
-        {% endfor %}
-    </div>
+            <div class="jason-twitter">
+                <h2>Jason Alexander as 'George' on 'Seinfeld'</h2>
+            
+                {% for i in range(jason_tweet_ids|length) %}
+                    <blockquote class="twitter-tweet">
+                        <a href="https://twitter.com/{{ jason_twitter_handle }}/status/{{ jason_tweet_ids[i] }}">
+                        </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                        </script>
+                    </blockquote> 
+                {% endfor %}
+            </div>
 
-    <div class="jason-twitter">
-        <h2>Jason Alexander as 'George' on 'Seinfeld'</h2>
-    
-        {% for i in range(jason_tweet_ids|length) %}
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/{{ jason_twitter_handle }}/status/{{ jason_tweet_ids[i] }}">
-                </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-                </script>
-            </blockquote> 
-        {% endfor %}
+            <div class="modern-twitter">
+                <h2>Bonus: A take on how episodes might have gone in the 2010's</h2>
+            
+                {% for i in range(modern_tweet_ids|length) %}
+                    <blockquote class="twitter-tweet">
+                        <a href="https://twitter.com/{{ modern_twitter_handle }}/status/{{ modern_tweet_ids[i] }}">
+                        </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                        </script>
+                    </blockquote> 
+                {% endfor %}
+            </div>
+            {% endblock %}
     </div>
-
-    <div class="modern-twitter">
-        <h2>Bonus: A take on how episodes might have gone in the 2010's</h2>
-    
-        {% for i in range(modern_tweet_ids|length) %}
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/{{ modern_twitter_handle }}/status/{{ modern_tweet_ids[i] }}">
-                </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-                </script>
-            </blockquote> 
-        {% endfor %}
-    </div>
-    {% endblock %}
+</div>
