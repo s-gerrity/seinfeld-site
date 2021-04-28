@@ -9,10 +9,10 @@ function initMap() {
   if (url.includes("zip-code")) {
 
     var zipCode = url.slice(-5);
-    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ zipCode +'&key=AIzaSyD1cehJkP_rAfMP7QnCqBSzBz_4-7wFjRI';
+    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ zipCode +'&key=';
     
   } else {
-    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address=10024&key=AIzaSyD1cehJkP_rAfMP7QnCqBSzBz_4-7wFjRI';
+    mapsApiStr = 'https://maps.googleapis.com/maps/api/geocode/json?address=10024&key=';
   }
   
   $.get(mapsApiStr, (res) => {
