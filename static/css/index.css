@@ -35,7 +35,23 @@ body {
     height: 100%;
     width: 100%;
   }
+
+.message-font {
+  font-family: Menlo;
+}
+
+  #sam-font {
+    font-family: 'helvetica_condensedbold';
+  }
   
+  @font-face {
+    font-family: 'helvetica_condensedbold';
+    src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),
+         url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
   /* MARKETING CONTENT
   -------------------------------------------------- */
   

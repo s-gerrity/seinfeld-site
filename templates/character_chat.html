@@ -35,8 +35,8 @@
                                 a bot response-->
                             <!-- user_messages session holds "None" in session upon load, making len=1-->
                             {% for i in range(user_messages|length) %}
-                            {% if user_messages[i+1] %}<p id="user-line">{{ user_name }}: {{ user_messages[i+1] }}</p><br>
-                            {% if bot_responses[i] %}<p id="bot-line">{{ bot_name }}: {{ bot_responses[i] }}</p><br>{% endif %}{%
+                            {% if user_messages[i+1] %}<p id="user-line">{{ user_name }}: <span class="message-font">{{ user_messages[i+1] }}</span></p><br>
+                            {% if bot_responses[i] %}<p id="bot-line">{{ bot_name }}: <span class="message-font">{{ bot_responses[i] }}</span></p><br>{% endif %}{%
                             endif %}
                             {% endfor %}
                         </div>
