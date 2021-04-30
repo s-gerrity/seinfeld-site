@@ -6,13 +6,14 @@
 <script type="text/javascript">
     var url = window.location.href;
     if (url.includes("username")) {
-        document.getElementById("character-select").style.visibility = "hidden";
+        console.log("PICK CHAR")
+        document.getElementById("pick-char").style.visibility = "hidden";
     }
-
 
     var url = window.location.href;
     if (url.includes("username")) {
-        document.getElementById("character-instructions").style.visibility = "hidden";
+        console.log("PICK USERNAME")
+        document.getElementById("pick-username").style.visibility = "hidden";
     }
 
 
@@ -28,12 +29,6 @@
             document.getElementById("submit-button").click();
         }
     });
-
-
-    var url = window.location.href;
-    if (url.includes("username")) {
-        document.getElementById("username-fields").style.visibility = "hidden";
-    }
 </script>
 <div class="subpage-header">
     <h1>Character Bot Chat</h1>
@@ -50,9 +45,12 @@
         <br>
         <div class="row">
             <div class="col-sm-6">
+                
                 <div class="row">
                     <div class="col-sm-4">
-                        <p id="character-instructions">Pick a character:</p>
+                        <div id="pick-char">
+                        <p>Pick a character:</p>
+                    </div>
                     </div>
                     <div class="col-sm-4">
                         <form action="/character-chat">
@@ -66,8 +64,9 @@
                             <br>
                             <br>
                     </div>
+                
                 </div>
-                <div class="row">
+                <div class="row" id="pick-username">
                     <div class="col-sm-4">
                         <label for="username">Make a username:</label>
                     </div>
@@ -94,7 +93,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <p><em>*To switch characters, end the conversation.</em></p>
-                        
+
                     </div>
                     <div class="col-sm-12">
                         <form action="/clear" method="GET">
@@ -108,7 +107,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 </div>
 
 <div class="transcript">

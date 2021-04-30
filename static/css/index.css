@@ -90,22 +90,22 @@ body {
     color: white;
   }
 
+  .watn-description {
+    padding-left: 50px;
+  }
+
   a:hover {
     color:#e3c505;
   }
 
-  .btn:hover, #zip-button:hover, #end-convo:hover, #bot-chat-submit-button:hover {
+  .btn:hover, #zip-button:hover, #end-convo:hover, #bot-chat-submit-button:hover, .navbar:hover {
     background-color:#e3c505;
   }
   
-  .navbar-brand:hover {
+  .navbar-brand:hover, .accordion-button:hover {
     color:#e3c505 !important;
   }
   
-  .navbar:hover {
-    background-color:#e3c505;
-  }
-
   .navbar-dark:hover .navbar-nav:hover .nav-link:hover {
     color:#e3c505;
   }
@@ -184,6 +184,8 @@ body {
   
   .featurette-divider {
     margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    color: #e3c505;
+    height: 5px !important;
   }
   
   /* Thin out the marketing headings */
