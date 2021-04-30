@@ -1,80 +1,85 @@
 {% extends 'base.html' %}
 
-    <title>{% block title %}Seinfeld Local Cuisine{% endblock %}</title>
-    
-    {% block content %}
-    
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-            background-color: grey;
-        }
-    </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<title>{% block title %}Seinfeld Local Cuisine{% endblock %}</title>
 
-    <div class="subpage-header">
-        <h1>Restaurant Locator</h1>
-    </div>
-    <br>
-    <br>
-    <div class="container">
-        <div class="float-right">
+{% block content %}
 
-            <div class="row">
-                <div class="col-lg">
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+        background-color: grey;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 
-
-                    <div class="page-description">
-                        <p>The show Seinfeld often uses food as a plot device. Sometimes the 
-                            foods sound tasty, or maybe the show is the first time you're hearing
-                            about this type of thing. Use the local search to see where cuisine
-                            and items mentioned on the show are available near you.</p>
-                    </div>
+<div class="subpage-header">
+    <h1>Restaurant Locator</h1>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="float-right">
+        <div class="row">
+            <div class="col-lg">
+                <div class="page-description">
+                    <p>The show Seinfeld often uses food as a plot device. Sometimes the
+                        foods sound tasty, or maybe the show is the first time you're hearing
+                        about this type of thing. Use the local search to see where cuisine
+                        and items mentioned on the show are available near you.</p>
                 </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="food-locate-form">
-                            <h3>Dine Like the Characters!</h3>
-                            <form action="/zip-code">
-                                <label name="your-zip-code">Your zip code: </label>
-                                <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5,5}" maxlength="5" style="border-radius: 5px">
-                                <text name="zip-user-input" id="zip-user-input"></text>  
-                                <p><em>* 10 mile radius</em></p><br>
-                                <input type="submit" value="submit" id="zip-button">
-                                <br>
-                                <br>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-sm-7">
-                        {% if zip_code_search %}
-                        <div class="food-results">
-                            <h2>Places: </h2>
-                        
-                            {% for key, value in dict_of_businesses.items() %}
-                            <p>{{ key[0] }}: {{ value[0] }} {{ value[1][0] }}, {{ value[1][1] }}</p>
-                            {% endfor %}
-
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            <div id="map">
             </div>
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="food-locate-form">
+                        <h2>Dine like the characters!</h2>
+                        <br>
+                        <form action="/zip-code">
+                            <label name="your-zip-code">Your zip code: </label>
+                            <br>
+                            <input class="form-control" type="text" id="zip-code" name="zip-code" pattern="[0-9]{5,5}"
+                                maxlength="5" style="border-radius: 5px">
+
+                            <text name="zip-user-input" id="zip-user-input"></text>
+
+                            <p><em>* Searches within a 10 mile radius</em></p><br>
+                            <input class="form-control" type="submit" value="submit" id="zip-button">
+
+
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    {% if zip_code_search %}
+                    <div class="food-results">
+                        <h2>Places: </h2>
+
+                        {% for key, value in dict_of_businesses.items() %}
+                        <p>{{ key[0] }}: {{ value[0] }} {{ value[1][0] }}, {{ value[1][1] }}</p>
+                        {% endfor %}
+
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div id="map">
+        </div>
     </div>
-    {% if zip_code_search %}
-    <script type="text/javascript">
-        const latLng = {{ business_lat_lng | tojson }}
-    </script>
-    {% endif %}
-    <script type="text/javascript" src="static/js/sein_maps.js">
-    </script>
-    <script async defer
+</div>
+{% if zip_code_search %}
+<script type="text/javascript">
+    const latLng = {{ business_lat_lng | tojson }}
+</script>
+{% endif %}
+<script type="text/javascript" src="static/js/sein_maps.js">
+</script>
+<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu0K1tl63X34gNx4rehOAPA6QfJWNrLjk&callback=initMap">
     </script>
 {% endblock %}

@@ -1,114 +1,129 @@
 {% extends 'base.html' %}
 
 
-     <title>{% block title %}The Ultimate Seinfeld Homepage{% endblock %}</title>
+<title>{% block title %}The Ultimate Seinfeld Homepage{% endblock %}</title>
 
 
-    {% block content %}
-    <main role="main">     
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div>
-              <img class="d-block img-fluid" id="no-stretch" src="static/images/color group 2.png" alt="First slide">
-              <div class="container">
-                <div class="carousel-caption text-left">
-                  <h1 id="sam-font-2">The Ultimate Seinfeld Experience</h1>
-                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
-              </div>
+{% block content %}
+<main role="main">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div>
+          <img class="d-block img-fluid" id="no-stretch" src="static/images/color group 2.png" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1 id="sam-font-2">The Ultimate Seinfeld Experience</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
+                metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             </div>
           </div>
-        </div>          
-      </div>  
-  
-        <!-- Marketing messaging and featurettes
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marketing messaging and featurettes
       ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
 
-      <div class="container marketing">
+  <div class="container marketing">
 
-        <!-- Four columns of text below the carousel -->
-        <div class="row">
-          <div class="col-lg-3">
-            <img class="rounded-circle" src="static/images/jerry comp on phone.jpeg" alt="Jerry on the phone" width="140" height="140">
-            <h2>Bot Chat</h2>
-            <p>Pick a character from the show to have an instant-message conversation with.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">Let's chat! &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-3">
-            <img class="rounded-circle" src="static/images/frank pointing.jpeg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Festivus</h2>
-            <p>The holiday is approaching. Check to see how much longer until it's here.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">When is it? &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-3">
-            <img class="rounded-circle" src="static/images/kramer comp.jpeg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Tweets</h2>
-            <p>Seinfeld's final episode was in 1998, but that doesn't mean the actors are sitting around doing more nothing.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">Show me! &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-3">
-            <img class="rounded-circle" src="static/images/toms.jpeg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Restaurants</h2>
-            <p>Use the local search to see where cuisine and items mentioned on the show are available near you.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">I'm hungry! &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+    <!-- Four columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-3">
+        <img class="rounded-circle" src="static/images/jerry comp on phone.jpeg" alt="Jerry on the phone" width="140"
+          height="140">
+        <h2>Bot Chat</h2>
+        <p>Pick a character from the show to have an instant-message conversation with.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">Let's chat! &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3">
+        <img class="rounded-circle" src="static/images/frank pointing.jpeg" alt="Generic placeholder image" width="140"
+          height="140">
+        <h2>Festivus</h2>
+        <p>The holiday is approaching. Check to see how much longer until it's here.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">When is it? &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3">
+        <img class="rounded-circle" src="static/images/kramer comp.jpeg" alt="Generic placeholder image" width="140"
+          height="140">
+        <h2>Tweets</h2>
+        <p>Seinfeld's final episode was in 1998, but that doesn't mean the actors are sitting around doing more nothing.
+        </p>
+        <p><a class="btn btn-secondary" href="#" role="button">Show me! &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3">
+        <img class="rounded-circle" src="static/images/toms.jpeg" alt="Generic placeholder image" width="140"
+          height="140">
+        <h2>Restaurants</h2>
+        <p>Use the local search to see where cuisine and items mentioned on the show are available near you.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">I'm hungry! &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
 
 
-        <!-- START THE FEATURETTES -->
+    <!-- START THE FEATURETTES -->
 
-        <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span>
+        </h2>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+          at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
+          alt="Generic placeholder image">
+      </div>
+    </div>
 
-        <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
+          semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+          commodo.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
+          alt="Generic placeholder image">
+      </div>
+    </div>
 
-        <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
+          semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+          commodo.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
+          alt="Generic placeholder image">
+      </div>
+    </div>
 
-        <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-        <!-- /END THE FEATURETTES -->
+    <!-- /END THE FEATURETTES -->
 
-      </div><!-- /.container -->
-      {% endblock %}
+  </div><!-- /.container -->
+  {% endblock %}
 
-    {% block footer %}
-    <footer>
-        <p>You are the {{ counter }} visitor to the site!</p>
-        <!-- found hit counter online -->
-        <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits">
-    </footer>
-    {% endblock %}
+  {% block footer %}
+  <footer>
+    <p>You are the {{ counter }} visitor to the site!</p>
+    <!-- found hit counter online -->
+    <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits">
+  </footer>
+  {% endblock %}
