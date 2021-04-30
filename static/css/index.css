@@ -76,6 +76,44 @@ body {
     box-shadow: 0 2px 40px 0 rgb(0 0 0 / 30%);
   }
 
+  a:hover {
+    color:#e3c505;
+  }
+
+  .btn:hover {
+    background-color:#e3c505;
+  }
+  
+  .navbar-brand:hover {
+    color:#e3c505 !important;
+  }
+  
+  .navbar:hover {
+    background-color:#e3c505
+  }
+
+  .navbar-dark:hover .navbar-nav:hover .nav-link:hover {
+    color:#e3c505;
+  }
+
+  .accordion .accordion-header {
+    background: transparent !important;
+    border: none !important;
+    padding: 0;
+    margin: 20px !important;
+  }
+
+.accordion-button {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.accordion-item {
+  background-color: transparent !important;
+  border: none;
+}
+
+
   @font-face {
     font-family: 'helvetica_condensedbold';
     src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),
