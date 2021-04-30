@@ -68,6 +68,14 @@ body {
     color: #4f6d7a !important;
   }
 
+  #accordionExample {
+    background-color: transparent !important;
+  }
+
+  input textarea {
+    border-radius: 5px;
+  }
+
   @font-face {
     font-family: 'helvetica_condensedbold';
     src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),

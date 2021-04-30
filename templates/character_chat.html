@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
     <title>{% block title %}Seinfeld Character Bot Chat{% endblock %}</title>
-
-
     {% block content %}
     <div class="subpage-header">
         <h1>Character Bot Chat</h1>
@@ -15,7 +13,7 @@
                     <h2 id="bot-chat">Chat with a Seinfeld character bot!</h3>
                     <p id ="character-instructions">Pick a character from the show to have an instant-message conversation with.</p>
                     <form action="/character-chat">
-                        <select name="character-bot" id="character-select">
+                        <select name="character-bot" id="character-select" style="border-radius: 5px">
                             <!-- the character who was sent a chat is automatically selected for the next message in session -->
                             <option value="Jerry" {% if bot_name=='Jerry' %} selected{% endif %}>Jerry</option>
                             <option value="George" {% if bot_name=='George' %} selected{% endif %}>George</option>
@@ -37,8 +35,8 @@
                                 a bot response-->
                             <!-- user_messages session holds "None" in session upon load, making len=1-->
                             {% for i in range(user_messages|length) %}
-                            {% if user_messages[i+1] %}<p id="user-line">{{ user_name }}: <span class="message-font">{{ user_messages[i+1] }}</span></p><br>
-                            {% if bot_responses[i] %}<p id="bot-line">{{ bot_name }}: <span class="message-font">{{ bot_responses[i] }}</span></p><br>{% endif %}{%
+                            {% if user_messages[i+1] %}<p id="user-line"><strong>{{ user_name }}: </strong><span class="message-font">{{ user_messages[i+1] }}</span></p><br>
+                            {% if bot_responses[i] %}<p id="bot-line"><strong>{{ bot_name }}: </strong><span class="message-font">{{ bot_responses[i] }}</span></p><br>{% endif %}{%
                             endif %}
                             {% endfor %}
                         </div>
@@ -46,11 +44,11 @@
                         <div id="username-fields">
                             <p>Make up a username for your chat.</p>
                             <label for="username">Username:</label>
-                            <input type="username" id="username" name="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %}>
+                            <input type="username" id="username" name="username" {% if user_name %} placeholder="{{ user_name }}" {% endif %} style="border-radius: 5px">
                         </div>
                         <br>
                         <br>
-                        <textarea rows="3" cols="30" name="user-input" id="user-input"></textarea>
+                        <textarea rows="3" cols="30" name="user-input" id="user-input" style="border-radius: 5px"></textarea>
                         <br>
                         <input type="submit" value="Submit" id="submit-button">
                         <br>
