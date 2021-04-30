@@ -47,6 +47,7 @@ body {
     font-family: 'streamster';
     font-size: 5em;
     color: white;
+    text-shadow: 2px 2px 5px #e3c505;
   }
 
   .subpage-header {
@@ -89,11 +90,15 @@ body {
   }
   
   .navbar:hover {
-    background-color:#e3c505
+    background-color:#e3c505;
   }
 
   .navbar-dark:hover .navbar-nav:hover .nav-link:hover {
     color:#e3c505;
+  }
+
+  .accordion-button:hover {
+    background-color:#e3c505
   }
 
   .accordion .accordion-header {
@@ -106,6 +111,7 @@ body {
 .accordion-button {
   background-color: transparent !important;
   border: none !important;
+  font-size: .75em;
 }
 
 .accordion-item {
