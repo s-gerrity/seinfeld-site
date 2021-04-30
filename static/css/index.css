@@ -72,8 +72,8 @@ body {
     background-color: transparent !important;
   }
 
-  input textarea {
-    border-radius: 5px;
+  .navbar {
+    box-shadow: 0 2px 40px 0 rgb(0 0 0 / 30%);
   }
 
   @font-face {
