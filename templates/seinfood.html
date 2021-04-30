@@ -13,9 +13,11 @@
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-    <header class="subpage-header">
-        <h1>Seinfeld Food Locator</h1>
-    </header>
+    <div class="subpage-header">
+        <h1>Restaurant Locator</h1>
+    </div>
+    <br>
+    <br>
     <div class="container">
         <div class="float-right">
 
@@ -65,9 +67,11 @@
             </div>
         </div>
     </div>
+    {% if zip_code_search %}
     <script type="text/javascript">
         const latLng = {{ business_lat_lng | tojson }}
     </script>
+    {% endif %}
     <script type="text/javascript" src="static/js/sein_maps.js">
     </script>
     <script async defer

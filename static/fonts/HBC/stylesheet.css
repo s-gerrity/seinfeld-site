@@ -10,3 +10,11 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'streamster';
+    src: url("static/css/fonts/streamster/Streamster.tff") format('tff');
+    font-weight: normal;
+    font-style: normal;
+
+}

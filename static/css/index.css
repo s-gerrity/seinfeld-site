@@ -4,7 +4,9 @@ body {
     color: #5a5a5a;
   }
   
-  
+  html body {
+    background-color: #c0d6df;
+  }
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
   
@@ -34,16 +36,38 @@ body {
   #no-stretch {
     height: 100%;
     width: 100%;
+    opacity: .8;
   }
 
-.message-font {
-  font-family: Menlo;
-}
-
-  #sam-font {
-    font-family: 'helvetica_condensedbold';
+  .message-font {
+    font-family: Menlo;
   }
-  
+
+  #sam-font-2 {
+    font-family: 'streamster';
+    font-size: 5em;
+    color: white;
+  }
+
+  .subpage-header {
+    font-family: 'streamster';
+    font-size: 4em;
+    margin-top: 100px !important;
+    margin-left: 40px !important;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-top: 50px;
+  }
+
+  .navbar-brand {
+    margin-left: 10px !important;
+    font-family: 'streamster' !important;
+    font-size: 1.75em;
+    color: #4f6d7a !important;
+  }
+
   @font-face {
     font-family: 'helvetica_condensedbold';
     src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),
@@ -51,7 +75,17 @@ body {
     font-weight: normal;
     font-style: normal;
 
+  }
+
+@font-face {
+  font-family: 'streamster';
+  src: url("static/css/fonts/streamster/Streamster.tff") format('tff');
+  font-weight: normal;
+  font-style: normal;
+
 }
+
+
   /* MARKETING CONTENT
   -------------------------------------------------- */
   
