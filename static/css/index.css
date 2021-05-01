@@ -94,7 +94,7 @@ body {
     box-shadow: 0 2px 40px 0 rgb(0 0 0 / 30%);
   }
 
-  .btn, #zip-button, #end-convo, #bot-chat-submit-button {
+  .hp-button, #zip-button, #end-convo, #bot-chat-submit-button {
     background-color: #4f6d7a;
     color: white;
   }
@@ -109,6 +109,7 @@ body {
 
   .btn:hover, #zip-button:hover, #end-convo:hover, #bot-chat-submit-button:hover, .navbar:hover {
     background-color:#e3c505;
+    color: white;
   }
   
   .navbar-brand:hover, .accordion-button:hover {
