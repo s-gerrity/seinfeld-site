@@ -78,6 +78,14 @@ body {
     text-shadow: 2px 2px 5px #e3c505;
   }
 
+  input:placeholder-shown {
+    font-style: italic;
+ }
+
+ .form-control {
+   opacity: .7;
+ }
+
   #accordionExample {
     background-color: transparent !important;
   }
@@ -126,6 +134,7 @@ body {
   background-color: transparent !important;
   border: none !important;
   font-size: .75em;
+  font: italic;
 }
 
 .accordion-item {

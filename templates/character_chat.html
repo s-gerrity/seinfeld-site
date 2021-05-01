@@ -17,24 +17,21 @@
         </div>
         <br>
         <br>
-        
         <div class="row">
             <div class="col-sm-6">
                 <div class="transcript">
-
-                            <!-- for how many messages are saved in the session, show that many messages with
-                        a bot response-->
-                            <!-- user_messages session holds "None" in session upon load, making len=1-->
-                            {% for i in range(user_messages|length) %}
-                            {% if user_messages[i+1] %}<p id="user-line"><span id="user-name-style">{{ user_name
-                                    }}:
-                                </span><span class="message-font">{{ user_messages[i+1] }}</span></p><br>
-                            {% if bot_responses[i] %}<p id="bot-line"><span id="bot-name-style">{{ bot_name }}:
-                                </span><span class="message-font">{{ bot_responses[i] }}</span></p><br>{% endif
-                            %}{%
-                            endif %}
-                            {% endfor %}
-
+                    <!-- for how many messages are saved in the session, show that many messages with
+                a bot response-->
+                    <!-- user_messages session holds "None" in session upon load, making len=1-->
+                    {% for i in range(user_messages|length) %}
+                    {% if user_messages[i+1] %}<p id="user-line"><span id="user-name-style">{{ user_name
+                            }}:
+                        </span><span class="message-font">{{ user_messages[i+1] }}</span></p><br>
+                    {% if bot_responses[i] %}<p id="bot-line"><span id="bot-name-style">{{ bot_name }}:
+                        </span><span class="message-font">{{ bot_responses[i] }}</span></p><br>{% endif
+                    %}{%
+                    endif %}
+                    {% endfor %}
                 </div>
                 <div id="pick-char">
                     <div class="row">
@@ -100,9 +97,7 @@
                 </div> <!-- .row for left side column ends -->
             </div> <!-- .bot-chat ends -->
         </div> <!-- .float-right ends -->
-        </div> <!-- .container ends -->
-
-
+    </div> <!-- .container ends -->
 
         <script type="text/javascript">
             var url = window.location.href;
