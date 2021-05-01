@@ -48,7 +48,7 @@ body {
     font-size: 5em;
     color: white;
     text-shadow: 2px 2px 5px #e3c505;
-    letter-spacing: .012em;
+    letter-spacing: .02em;
   }
 
   .subpage-header {
@@ -62,6 +62,7 @@ body {
     font-size: 1.5em;
     margin-top: 50px;
     letter-spacing: .012em;
+    text-shadow: 2px 2px 5px #4f6d7a;
   }
 
   h2 {
