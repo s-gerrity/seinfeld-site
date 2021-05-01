@@ -18,7 +18,7 @@ app.secret_key = "sehn"
 def homepage():
     """Loads homepage."""
 
-    return render_template('homepage.html')
+    return render_template('example.html')
 
 
 @app.route('/clear')

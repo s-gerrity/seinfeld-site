@@ -58,6 +58,12 @@ body {
     margin-left: 40px !important;
   }
 
+  #festivus-tagline {
+    color: white !important;
+    font-size: 1.5em !important;
+    opacity: .7;
+  }
+
   h1 {
     font-size: 1.5em;
     margin-top: 50px;
@@ -110,6 +116,19 @@ body {
   .btn:hover, #zip-button:hover, #end-convo:hover, #bot-chat-submit-button:hover, .navbar:hover {
     background-color:#e3c505;
     color: white;
+  }
+
+  #festivus-btn {
+
+    font-weight: bold;
+  }
+
+  #festivus-btn:hover {
+    color: #dd6e42;
+  }
+
+  #festivus-btn:active {
+    color: #dd6e42;
   }
   
   .navbar-brand:hover, .accordion-button:hover {
