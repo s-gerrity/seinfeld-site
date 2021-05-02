@@ -8,14 +8,15 @@
 
     <div class="cover-container d-flex h-100 mx-auto flex-column">
 
-
+     
         <div class="bg-image d-flex justify-content-center align-items-center" 
         id="background-image-gif" 
         style="
             background-image: url('static/images/georgeparents.jpg');
             height: 75vh; 
             background-size: cover;" 
-        onclick="this.background-image.url('https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif')">
+            >
+        
 
             <main role="main" class="inner cover">
                 <h1 id="sam-font-2">Countdown to Festivus</h1>
@@ -24,16 +25,24 @@
                 <br>
                 <br>
                 <p class="lead">
-                    <a href="#" class="btn btn-lg btn-outline-warning" id="festivus-btn">{{ days_left }} DAYS LEFT</a>
+                    <a href="#" class="btn btn-lg btn-outline-warning" id="festivus-btn" onclick="myFunction()">{{ days_left }} DAYS LEFT</a>
                 </p>
             </main>
         </div>
     </div>
 </div>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
-    const changeBackgroundGif = () => {
+    function myFunction() {
+    document.getElementById("background-image-gif").style.backgroundImage = "url('https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif')";
+}
+
+</script>
+
+
+
+    <!-- const changeBackgroundGif = () => {
 
         if (document.getElementById('#background-image-gif').url === 'static/images/georgeparents.jpg') {
             document.getElementById('#background-image-gif').url === 'https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif';

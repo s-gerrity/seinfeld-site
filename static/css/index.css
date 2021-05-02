@@ -222,6 +222,12 @@ margin-bottom: 25px !important;
     margin-top: 70px;
   }
 
+  #map {
+    height: 400px;
+    width: 100%;
+    background-color: grey;
+}
+
   @font-face {
     font-family: 'helvetica_condensedbold';
     src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),
