@@ -24,7 +24,7 @@ def make_bots():
 def get_responses():
     """Load response quotes from dataset into database."""
 
-    with open("data/test_responses.tsv") as response_data:
+    with open("data/bot_responses.tsv") as response_data:
         for i, line in enumerate(response_data):
             # if i >= 7000: # limit the number of rows read
             #     break

@@ -144,6 +144,7 @@ margin-bottom: 25px !important;
   padding-left: 25px;
   }
 
+
 /* hover to yellow */
   a:hover {
     color:#e3c505;
@@ -196,7 +197,7 @@ margin-bottom: 25px !important;
     font-size: 1.5em;
     margin-top: 50px;
     letter-spacing: .012em;
-    /* text-shadow: 2px 2px 5px #4f6d7a; */
+    text-shadow: 2px 2px 5px #4f6d7a; 
   }
 
   h2 {
@@ -231,10 +232,10 @@ margin-bottom: 25px !important;
   }
 
   @font-face {
-  font-family: 'streamster';
-  src: url("static/css/fonts/streamster/Streamster.tff") format('tff');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'streamster';
+    src: url("static/css/fonts/streamster/Streamster.tff") format('tff');
+    font-weight: normal;
+    font-style: normal;
 
   }
 
@@ -312,10 +313,4 @@ a:hover {
     /* Prevent inheritance from `body` */
     background-color: #fff;
     border: .05rem solid #fff;
-}
-
-#background-image-gif {
-  background-image: url('static/images/georgeparents.jpg');
-  height: 75vh !important; 
-  background-size: cover !important;
 }
