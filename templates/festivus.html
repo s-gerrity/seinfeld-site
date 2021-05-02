@@ -5,13 +5,33 @@
 
 
 {% block content %}
-<div class="subpage-header">
-    <h1>Countdown to Festivus</h1>
+<div class="text-center">
+
+    <div class="cover-container d-flex h-100 mx-auto flex-column">
+
+
+        <div class="bg-image d-flex justify-content-center align-items-center" style="
+    background-image: url('static/images/georgeparents.jpg');
+    height: 75vh; background-size: cover;
+  ">
+            <main role="main" class="inner cover">
+                <h1 id="sam-font-2">Countdown to Festivus</h1>
+                <div id="festivus-tagline">Festivus is December 23rd 2021! <em>Mark your calendar.</em>
+                </div>
+                <br>
+                <br>
+                <p class="lead">
+                    <a href="#" class="btn btn-lg btn-outline-warning" id="festivus-btn">{{  days_left  }} DAYS LEFT</a>
+                </p>
+            </main>
+        </div>
+    </div>
 </div>
+<!-- 
 
     <div class="countdown">
         <h2 id="festivus-countdown">Festivus is December 23rd 2021!</h2>
         <p>Only<span id="days-left"> {{  days_left  }}</span> days until it's here <em>– mark your calendar.</em></p>
     </div>
-    
+     -->
 {% endblock %}

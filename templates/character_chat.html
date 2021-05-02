@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-sm-4">
                             <form action="/character-chat">
-                                <select class="form-control" name="character-bot" id="character-select">
+                                <select class="form-select user-field" name="character-bot" id="character-select">
                                     <!-- the character who was sent a chat is automatically selected for the next message in session -->
                                     <option value="Jerry" {% if bot_name=='Jerry' %} selected{% endif %}>Jerry</option>
                                     <option value="George" {% if bot_name=='George' %} selected{% endif %}>George
@@ -59,7 +59,7 @@
                             <label for="username">Make a username:</label>
                         </div>
                         <div class="col-sm-4">
-                            <input class="form-control" type="username" id="username" name="username" {% if user_name %}
+                            <input class="form-control user-field" type="username" id="username" name="username" {% if user_name %}
                                 placeholder="{{ user_name }}" {% endif %}>
                             <br>
                             <br>
@@ -68,8 +68,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <input class="form-control" name="user-input" id="user-input" style="border-radius: 5px"
-                                placeholder="Start typing...">
+                            <input class="form-control user-field" name="user-input" id="user-input" placeholder="Start typing...">
                             <br>
                         </div>
                         <div class="col-sm-12">
@@ -115,7 +114,7 @@
                     // dont do what would normally happen when the action is requested
                     event.preventDefault();
                     // instead, do this (click the submit button)
-                    document.getElementById("submit-button").click();
+                    document.getElementById("bot-chat-submit-button").click();
                 }
             });
         </script>

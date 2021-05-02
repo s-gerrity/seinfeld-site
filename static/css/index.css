@@ -22,7 +22,7 @@ body {
   
   /* Declare heights because of positioning of img element */
   .carousel-item {
-    height: 32rem;
+    height: 36rem;
     background-color: #777;
   }
   .carousel-item > img {
@@ -55,7 +55,7 @@ body {
     font-family: 'streamster';
     font-size: 4em;
     margin-top: 100px !important;
-    margin-left: 40px !important;
+    margin-left: 50px !important;
   }
 
   #festivus-tagline {
@@ -88,7 +88,7 @@ body {
     font-style: italic;
  }
 
- .form-control {
+ .user-field, .form-select {
    opacity: .7;
  }
 
@@ -124,10 +124,6 @@ body {
   }
 
   #festivus-btn:hover {
-    color: #dd6e42;
-  }
-
-  #festivus-btn:active {
     color: #dd6e42;
   }
   
@@ -253,3 +249,33 @@ body {
 .food-locate-form {
   align-items: center;
 }
+
+        /* Links */
+        a,
+        a:focus,
+        a:hover {
+            color: #fff;
+        }
+
+        /* Custom default button */
+        .btn-secondary,
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            color: #333;
+            text-shadow: none;
+            /* Prevent inheritance from `body` */
+            background-color: #fff;
+            border: .05rem solid #fff;
+        }
+
+        /*
+ * Cover
+ */
+        .cover {
+            padding: 0 1.5rem;
+        }
+
+        .cover .btn-lg {
+            padding: .75rem 1.25rem;
+            font-weight: 700;
+        }
