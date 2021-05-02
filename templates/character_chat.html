@@ -10,7 +10,7 @@
 <br>
 <br>
 <div class="container">
-    <div class="float-right"></div>
+    <div class="float-right">
     <div class="bot-chat">
         <div class="row">
             <h2 id="bot-chat">Chat with a Seinfeld bot!</h3>
@@ -59,63 +59,64 @@
                             <label for="username">Make a username:</label>
                         </div>
                         <div class="col-sm-4">
-                            <input class="form-control user-field" type="username" id="username" name="username" {% if user_name %}
-                                placeholder="{{ user_name }}" {% endif %}>
+                            <input class="form-control user-field" type="username" id="username" name="username" {% if
+                                user_name %} placeholder="{{ user_name }}" {% endif %}>
                             <br>
                             <br>
                         </div>
-                </div><!-- .pick char ends -->              
+                    </div><!-- .pick char ends -->
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input class="form-control user-field" name="user-input" id="user-input"
+                            placeholder="Start typing...">
+                        <br>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <input class="form-control user-field" name="user-input" id="user-input" placeholder="Start typing...">
-                            <br>
-                        </div>
-                        <div class="col-sm-12">
-                            <input class="form-control" type="submit" value="Submit" id="bot-chat-submit-button">
-                            <br>
-                            <br>
-                        </div>
+                    <div class="col-sm-12">
+                        <input class="form-control" type="submit" value="Submit" id="bot-chat-submit-button">
+                        <br>
+                        <br>
                     </div>
-                            </form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <p><em>*To switch characters, end the conversation.</em></p>
-                                </div>
-                                <div class="col-sm-12">
-                                    <form action="/clear" method="GET">
-                                        <input class="form-control" type="submit" value="End Chat" id="end-convo">
-                                    </form>
-                                </div>
-                            </div>
-                        </div> <!-- .col-sm-12 end convo note & button -->
-                        <div class="col-sm-6">
-                            <img src="static/images/jerry comp gif.gif">
-                        </div>
-                    </div> <!-- .col-sm-6 entire left column ends -->
-                </div> <!-- .row for left side column ends -->
-            </div> <!-- .bot-chat ends -->
-        </div> <!-- .float-right ends -->
-    </div> <!-- .container ends -->
+                </div>
+                </form>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p><em>*To switch characters, end the conversation.</em></p>
+                    </div>
+                    <div class="col-sm-12">
+                        <form action="/clear" method="GET">
+                            <input class="form-control" type="submit" value="End Chat" id="end-convo">
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- .col-sm-12 end convo note & button -->
+            <div class="col-sm-6">
+                <img src="static/images/jerry comp gif.gif">
+            </div>
+        </div> <!-- .col-sm-6 entire left column ends -->
+    </div> <!-- .row for left side column ends -->
+</div> <!-- .bot-chat ends -->
+</div> <!-- .float-right ends -->
+</div> <!-- .container ends -->
 
-        <script type="text/javascript">
-            var url = window.location.href;
-            if (url.includes("username")) {
-                document.getElementById("pick-char").style.display = "none";
-            }
+<script type="text/javascript">
+    var url = window.location.href;
+    if (url.includes("username")) {
+        document.getElementById("pick-char").style.display = "none";
+    }
 
 
-            // find the element with the thing youre taking
-            const submitInput = document.getElementById('user-input');
-            // look for the action that consents to taking the thing
-            submitInput.addEventListener('keydown', function (event) {
-                // this is the action
-                if (event.keyCode == 13) {
-                    // dont do what would normally happen when the action is requested
-                    event.preventDefault();
-                    // instead, do this (click the submit button)
-                    document.getElementById("bot-chat-submit-button").click();
-                }
-            });
-        </script>
-        {% endblock %}
+    // find the element with the thing youre taking
+    const submitInput = document.getElementById('user-input');
+    // look for the action that consents to taking the thing
+    submitInput.addEventListener('keydown', function (event) {
+        // this is the action
+        if (event.keyCode == 13) {
+            // dont do what would normally happen when the action is requested
+            event.preventDefault();
+            // instead, do this (click the submit button)
+            document.getElementById("bot-chat-submit-button").click();
+        }
+    });
+</script>
+{% endblock %}
