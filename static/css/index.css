@@ -42,7 +42,8 @@ SAVED COLOR: #C6E2E9
   opacity: .8;
 }
 
-/* bot chat */
+/* bot chat
+-------------------------------- */
 
 .message-font {
   font-family: Menlo;
@@ -65,7 +66,8 @@ color: #dd6e42;
 
 
 
-/* festivus  */
+/* festivus
+---------------------------------  */
 
 #festivus-tagline {
   color: white !important;
@@ -87,7 +89,8 @@ color: #dd6e42;
 }
 
 
-/* navbar */
+/* navbar
+------------------------------------ */
 .navbar-brand {
   margin-left: 10px !important;
   font-family: 'streamster' !important;
@@ -102,101 +105,111 @@ color: #dd6e42;
 }
 
 
-/* where are they now - Accordion */
+/* where are they now - Accordion
+---------------------------------------------- */
 #accordionExample {
   background-color: transparent !important;
 }
 
 .accordion .accordion-header {
   background: transparent !important;
-  border: none !important;
+  /* border: blue !important; */
   padding: 0;
   margin: 20px !important;
 }
 
 .accordion-button {
 background-color: transparent !important;
-border: none !important;
+/* border: purple !important; */
 font-size: .75em;
 font: italic;
 }
 
 .accordion-item {
 background-color: transparent !important;
-border: none;
+/* border: green; */
+border: 5px solid #4f6d7a !important;
+margin-bottom: 25px !important;
 }
 
-
-/* hover to yellow */
-a:hover {
-  color:#e3c505;
+.accordion-button:focus {
+  border: #e3c505 !important;
 }
 
-.btn:hover, #zip-button:hover, #end-convo:hover, #bot-chat-submit-button:hover, .navbar:hover {
-  background-color:#e3c505;
-  color: white;
-}
-
-#festivus-btn:hover {
-  color: #dd6e42;
-}
-
-.navbar-brand:hover, .accordion-button:hover {
-  color:#e3c505 !important;
-}
-
-.navbar-dark:hover .navbar-nav:hover .nav-link:hover {
-  color:#e3c505;
-}
-
-.accordion-button:hover {
-  background-color:#e3c505
-}
-
-
-/* uncategorized */
-#sam-font-2 {
-  font-family: 'streamster';
-  font-size: 5em;
-  color: white;
-  text-shadow: 2px 2px 5px #e3c505;
-  letter-spacing: .02em;
-}
-
-.subpage-header {
-  font-family: 'streamster';
-  font-size: 4em;
-  margin-top: 100px !important;
-  margin-left: 50px !important;
+.page-description {
+  font-size: 1.2em;
 }
 
 .watn-description {
-padding-left: 50px;
-}
-
-.hp-button, #zip-button, #end-convo, #bot-chat-submit-button {
-  background-color: #4f6d7a;
-  color: white;
-}
-
-h1 {
-  font-size: 1.5em;
-  margin-top: 50px;
-  letter-spacing: .012em;
-  /* text-shadow: 2px 2px 5px #4f6d7a; */
-}
-
-h2 {
-  color: #4f6d7a;
-}
-
-.user-field, .form-select {
-  opacity: .7;
-}
-
-.food-locate-form {
-  align-items: center;
+  padding-left: 25px;
   }
+
+/* hover to yellow */
+  a:hover {
+    color:#e3c505;
+  }
+
+  .btn:hover, #zip-button:hover, #end-convo:hover, #bot-chat-submit-button:hover, .navbar:hover {
+    background-color:#e3c505;
+    color: white;
+  }
+
+  #festivus-btn:hover {
+    color: #dd6e42;
+  }
+
+  .navbar-brand:hover, .accordion-button:hover {
+    color:#e3c505 !important;
+  }
+
+  .navbar-dark:hover .navbar-nav:hover .nav-link:hover {
+    color:#e3c505;
+  }
+
+  .accordion-button:hover {
+    background-color:#e3c505
+  }
+
+
+/* uncategorized */
+  #sam-font-2 {
+    font-family: 'streamster';
+    font-size: 5em;
+    color: white;
+    text-shadow: 2px 2px 5px #e3c505;
+    letter-spacing: .02em;
+  }
+
+  .subpage-header {
+    font-family: 'streamster';
+    font-size: 4em;
+    margin-top: 100px !important;
+    margin-left: 50px !important;
+  }
+
+  .hp-button, #zip-button, #end-convo, #bot-chat-submit-button {
+    background-color: #4f6d7a;
+    color: white;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-top: 50px;
+    letter-spacing: .012em;
+    /* text-shadow: 2px 2px 5px #4f6d7a; */
+  }
+
+  h2 {
+    color: #4f6d7a;
+  }
+
+  .user-field, .form-select {
+    opacity: .7;
+  }
+
+  .food-locate-form {
+    align-items: center;
+    }
 
   .watn-subheader {
     font-family: 'streamster';
@@ -208,22 +221,22 @@ h2 {
     margin-top: 70px;
   }
 
-@font-face {
-  font-family: 'helvetica_condensedbold';
-  src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),
-        url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff") format('woff');
+  @font-face {
+    font-family: 'helvetica_condensedbold';
+    src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),
+          url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+  }
+
+  @font-face {
+  font-family: 'streamster';
+  src: url("static/css/fonts/streamster/Streamster.tff") format('tff');
   font-weight: normal;
   font-style: normal;
 
-}
-
-@font-face {
-font-family: 'streamster';
-src: url("static/css/fonts/streamster/Streamster.tff") format('tff');
-font-weight: normal;
-font-style: normal;
-
-}
+  }
 
 
 /* MARKETING CONTENT
@@ -248,8 +261,7 @@ font-style: normal;
 
 .featurette-divider {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-  color: #e3c505;
-  height: 5px !important;
+
 }
 
 /* Thin out the marketing headings */

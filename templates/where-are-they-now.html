@@ -14,41 +14,43 @@
 
 
 
-    <div class="row">
-        <div class="watn-subheader">
-        <h1>Where Are They Now?</h1>
-    </div>
-    </div>
-</div>
+            <div class="row">
+                <div class="watn-subheader">
+                    <h1>Where Are They Now?</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container">
     <div class="float-right">
         <div class="row watn-description">
-            <div class="col-sm-7">
+            <div class="col-sm-8">
                 <br>
                 <br>
-            <p>We love Seinfeld the show. Its final episode was in 1998, but that doesn't
-                mean the actors are sitting around doing more nothing. Some of them post on
-                Twitter. Check out their most recent tweets.</p>
+                <p class="page description">We love Seinfeld the show. Its final episode was in 1998, but that doesn't
+                    mean the actors are sitting around doing more nothing. Some of them post on
+                    Twitter. Check out their most recent tweets.</p>
+                <br>
             </div>
         </div>
         <div class="accordion" id="accordionExample">
             <div class="container">
                 <div class="row">
-                    <div class="row">
-                    <div class="col-sm-6">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #4f6d7a; font-weight: bold;">
-                                    <em>@JerrySeinfeld</em>
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <!-- {% for i in range(jerry_tweet_ids|length) %}
+                    <div class="row"> <!-- row for jerry & julia -->
+                        <div class="col-sm-6">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+                                        style="color: #4f6d7a; font-weight: bold;">
+                                        @JerrySeinfeld
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <!-- {% for i in range(jerry_tweet_ids|length) %}
                             <blockquote class="twitter-tweet">
                                 <a href="https://twitter.com/{{ jerry_twitter_handle }}/status/{{ jerry_tweet_ids[i] }}">
                                 </a>
@@ -56,24 +58,25 @@
                                 </script>
                             </blockquote> 
                             {% endfor %}  -->
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-sm-6">
-                        <div class="accordion-item julia-twitter">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="color: #4f6d7a; font-weight: bold;">
-                                    @OfficialJLD
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
+                            </div> <!-- jerry accodion item ends -->
+                        </div> <!-- jerry column ends -->
 
-                                    <!-- {% for i in range(julia_tweet_ids|length) %}
+                        <div class="col-sm-6">
+                            <div class="accordion-item julia-twitter">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"
+                                        style="color: #4f6d7a; font-weight: bold;">
+                                        @OfficialJLD
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                        <!-- {% for i in range(julia_tweet_ids|length) %}
                                 <blockquote class="twitter-tweet">
                                     <a href="https://twitter.com/{{ julia_twitter_handle }}/status/{{ julia_tweet_ids[i] }}">
                                     </a>
@@ -81,21 +84,24 @@
                                     </script>
                                 </blockquote> 
                                 {% endfor %}                         -->
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div> <!-- julia accordion item ends -->
+                        </div> <!-- julia column ends -->
+                    </div> <!-- row for jerry & julia ends -->
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="accordion-item jason-twitter">
                                     <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" style="color: #4f6d7a; font-weight: bold;">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="true" aria-controls="collapseThree"
+                                            style="color: #4f6d7a; font-weight: bold;">
                                             @IJasonAlexander
                                         </button>
                                     </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                        data-bs-parent="#accordionExample">
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <!-- {% for i in range(jason_tweet_ids|length) %}
                                         <blockquote class="twitter-tweet">
@@ -108,17 +114,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-6">
                                 <div class="accordion-item modern-twitter">
                                     <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour" style="color: #4f6d7a; font-weight: bold;">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="true" aria-controls="collapseFour"
+                                            style="color: #4f6d7a; font-weight: bold;">
                                             @Modern_Seinfeld
                                         </button>
                                     </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                        data-bs-parent="#accordionExample">
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <!-- {% for i in range(modern_tweet_ids|length) %}
                                         <blockquote class="twitter-tweet">
@@ -131,12 +139,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% endblock %}
             </div>
-            </div>
+        </div><!-- accordion row ends -->
+        {% endblock %}
+    </div>
+</div>
