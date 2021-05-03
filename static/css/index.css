@@ -136,6 +136,7 @@ margin-bottom: 25px !important;
 
 .page-description {
   font-size: 1.2em;
+  font-style: italic !important;
 }
 
 .watn-description {
@@ -227,14 +228,7 @@ margin-bottom: 25px !important;
     box-shadow: 0 2px 40px 0 rgb(0 0 0 / 30%);
 }
 
-  @font-face {
-    font-family: 'helvetica_condensedbold';
-    src: url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff2") format('woff2'),
-          url("/static/fonts/HBC/helvetica_condensed_bold-webfont.woff") format('woff');
-    font-weight: normal;
-    font-style: normal;
 
-  }
 
   @font-face {
     font-family: 'streamster';

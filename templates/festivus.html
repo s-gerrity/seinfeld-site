@@ -2,22 +2,14 @@
 
 <title>{% block title %}Countdown to Festivus{% endblock %}</title>
 
-
 {% block content %}
+<!-- Background image & cover text -->
 <div class="text-center">
-
     <div class="cover-container d-flex h-100 mx-auto flex-column">
-
-     
-        <div class="bg-image d-flex justify-content-center align-items-center" 
-        id="background-image-gif" 
-        style="
+        <div class="bg-image d-flex justify-content-center align-items-center" id="background-image-gif" style="
             background-image: url('static/images/georgeparents.jpg');
-            height: 75vh; 
-            background-size: cover;" 
-            >
-        
-
+            height: 90vh; 
+            background-size: cover;">
             <main role="main" class="inner cover">
                 <h1 id="sam-font-2">Countdown to Festivus</h1>
                 <div id="festivus-tagline">Festivus is December 23rd 2021! <em>Mark your calendar.</em>
@@ -25,23 +17,48 @@
                 <br>
                 <br>
                 <p class="lead">
-                    <a class="btn btn-lg btn-outline-warning" id="festivus-btn" onclick="changeGif()">{{ days_left }} DAYS LEFT</a>
+                    <a class="btn btn-lg btn-outline-warning" id="festivus-btn" onclick="changeGif()">{{ days_left }}
+                        DAYS LEFT</a>
                 </p>
             </main>
         </div>
     </div>
 </div>
 
+<!-- Description of Festivus -->
+<div class="container">
+    <div class="float-right">
+        <div class="col-sm-8">
+            <div class="page-description">
+                <br>
+                <br>
+                <h2>What is Festivus?</h2>
+                <br>
+                <p>Referenced on the show, it is a fictional secular holiday invented by George's father, Frank
+                    Costanza. Celebrated
+                    on December 23, it is intended as an alternative to the pressures and commercialism of the Christmas
+                    season. Some have described
+                    it as "an all-inclusive December gathering", involving a Festivus dinner, an unadorned aluminum
+                    Festivus pole, practices
+                    such as the "Airing of Grievances" and "Feats of Strength", and the labeling of easily explainable
+                    events as "Festivus miracles."
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for gif switch -->
 <script type="text/javascript">
-function changeGif() {
+    function changeGif() {
 
-    if (document.getElementById("background-image-gif").style.backgroundImage == "url(\"static/images/georgeparents.jpg\")") {
-        document.getElementById("background-image-gif").style.backgroundImage = "url(\"https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif\")";
+        if (document.getElementById("background-image-gif").style.backgroundImage == "url(\"static/images/georgeparents.jpg\")") {
+            document.getElementById("background-image-gif").style.backgroundImage = "url(\"https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif\")";
 
-    } else if (document.getElementById("background-image-gif").style.backgroundImage == "url(\"https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif\")") {
-        document.getElementById("background-image-gif").style.backgroundImage = "url(\"static/images/georgeparents.jpg\")";
-    }
-};
+        } else if (document.getElementById("background-image-gif").style.backgroundImage == "url(\"https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif\")") {
+            document.getElementById("background-image-gif").style.backgroundImage = "url(\"static/images/georgeparents.jpg\")";
+        }
+    };
 </script>
 
 {% endblock %}

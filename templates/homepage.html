@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-
 <title>{% block title %}The Ultimate Seinfeld Homepage{% endblock %}</title>
 
-
 {% block content %}
+
+<!-- Main image with cover text -->
 <main role="main">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -25,11 +25,8 @@
     </div>
   </div>
 
-  <!-- Site features --
-      ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
-  <div class="container marketing">
+<!-- Site features -->
+  <div class="container features">
 
     <!-- Four columns of text below the carousel -->
     <div class="row">
@@ -67,9 +64,4 @@
   {% endblock %}
 
   {% block footer %}
-  <footer>
-    <p>You are the {{ counter }} visitor to the site!</p>
-    <!-- found hit counter online -->
-    <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits">
-  </footer>
   {% endblock %}

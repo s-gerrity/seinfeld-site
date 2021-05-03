@@ -3,17 +3,14 @@
 <title>{% block title %}Where Are They Now?{% endblock %}</title>
 
 {% block content %}
+
+<!-- Jumbotron image & cover text -->
 <div class="text-left">
     <div class="cover-container d-flex h-100 mx-auto flex-column">
-
-
         <div class="bg-image d-flex align-items-center" style="
     background-image: url('static/images/color empty living room.jpeg');
     height: 30vh; background-size: cover;
     ">
-
-
-
             <div class="row">
                 <div class="watn-subheader">
                     <h1>Where Are They Now?</h1>
@@ -22,24 +19,30 @@
         </div>
     </div>
 </div>
+
+<!-- Page description & Tweet accordion -->
 <div class="container">
     <div class="float-right">
         <div class="row watn-description">
             <div class="col-sm-8">
                 <br>
                 <br>
-                <p class="page description">We love Seinfeld the show. Its final episode was in 1998, but that doesn't
-                    mean the actors are sitting around doing more nothing. Some of them post on
+                <p class="page-description">We love Seinfeld the show. Its final episode was in 1998, but that doesn't
+                    mean the actors are sitting around doing more of "nothing". Some of them post on
                     Twitter. Check out their most recent tweets.</p>
                 <br>
             </div>
-        </div>
+        </div><!-- row watn-description ends-->
         <div class="accordion" id="accordionExample">
-            <div class="container">
-                <div class="row">
+            <div class="container"><!-- tweets grid only container-->
+                <div class="row"><!-- giant row for the whole accordion -->
                     <div class="row"> <!-- row for jerry & julia -->
                         <div class="col-sm-6">
-                            <div class="accordion-item">
+
+                    <!-- Jerry tweets 
+                    ----------------------------------->
+
+                            <div class="accordion-item jerry-twitter">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
@@ -62,7 +65,9 @@
                                 </div>
                             </div> <!-- jerry accodion item ends -->
                         </div> <!-- jerry column ends -->
-
+                    
+                    <!-- Julia tweets 
+                    ------------------------------------------>
                         <div class="col-sm-6">
                             <div class="accordion-item julia-twitter">
                                 <h2 class="accordion-header" id="headingTwo">
@@ -91,6 +96,9 @@
                     </div> <!-- row for jerry & julia ends -->
                         <div class="row">
                             <div class="col-sm-6">
+
+                    <!-- Jason tweets
+                    --------------------------------->
                                 <div class="accordion-item jason-twitter">
                                     <h2 class="accordion-header" id="headingThree">
                                         <button class="accordion-button collapsed" type="button"
@@ -116,6 +124,9 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
+
+                    <!-- Modern Seinfeld tweets
+                    --------------------------------------------->
                                 <div class="accordion-item modern-twitter">
                                     <h2 class="accordion-header" id="headingFour">
                                         <button class="accordion-button collapsed" type="button"
@@ -136,15 +147,15 @@
                                             </script>
                                         </blockquote> 
                                     {% endfor %} -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        </div><!-- accordion body modern ends -->
+                                    </div><!-- modern collapse ends -->
+                                </div><!-- modern accordion item ends-->
+                            </div><!-- modern column ends -->
+                        </div><!-- jason & modern row ends -->
                     </div>
-                </div>
-            </div>
+                </div><!-- giant row for the whole accordion ends-->
+            </div><!-- tweets only container ends-->
         </div><!-- accordion row ends -->
         {% endblock %}
-    </div>
-</div>
+    </div><!-- float right ends -->
+</div><!-- main container ends-->
