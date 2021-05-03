@@ -57,7 +57,7 @@
 
                     {% endif %}
                 </div><!-- end div food results -->
-                <img src="static/images/jerry george diner.jpeg" id="diner-photo" style="width: 450px">
+                <img src="static/images/jerry george diner.jpeg" id="diner-photo" style="width: 450px;">
             </div><!-- end col right side food results col -->
         </div><!-- big upper row ends -->
     </div><!-- float right ends -->
@@ -74,18 +74,18 @@
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu0K1tl63X34gNx4rehOAPA6QfJWNrLjk&callback=initMap">
     </script>
-{% endblock %}
+
 
 <script type="text/javascript">
-    var url = window.location.href;
 
-    const showResultsNotImage = () => {
-    if (url.includes("zip-code")) {
-        document.getElementById("diner-photo").style.display = "none";
-    }
+var url = window.location.href;
+console.log("HELLO", url)
+// function removeImage() {
+//     console.log("HELLO")
+if (url.includes("zip-code")) {
+    console.log("ALOHA")
+    document.getElementById("diner-photo").style.display = "none";
+    // }
 };
-
-url.addEventListener('touchstart', showResultsNotImage, {passive: True});
-
- 
 </script>
+{% endblock %}
