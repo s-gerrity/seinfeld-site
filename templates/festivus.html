@@ -25,7 +25,7 @@
                 <br>
                 <br>
                 <p class="lead">
-                    <a class="btn btn-lg btn-outline-warning" id="festivus-btn" onclick="myFunction()">{{ days_left }} DAYS LEFT</a>
+                    <a class="btn btn-lg btn-outline-warning" id="festivus-btn" onclick="changeGif()">{{ days_left }} DAYS LEFT</a>
                 </p>
             </main>
         </div>
@@ -33,75 +33,15 @@
 </div>
 
 <script type="text/javascript">
+function changeGif() {
 
-//     function myFunction() {
-//     document.getElementById("background-image-gif").style.backgroundImage = "url(https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif)";
-// }
+    if (document.getElementById("background-image-gif").style.backgroundImage == "url(\"static/images/georgeparents.jpg\")") {
+        document.getElementById("background-image-gif").style.backgroundImage = "url(\"https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif\")";
 
-// onclick="myFunction()"
-
-
-// function myFunction() {
-//     console.log("HEY 1")
-
-//     if (document.getElementById("background-image-gif").style.backgroundImage = "url(static/images/georgeparents.jpg)") {
-//         console.log("IF WORKED");
-//     }
-// };
-
-
-
-function myFunction() {
-    console.log("HEY 1", document.getElementById("background-image-gif").style.backgroundImage)
-
-    if (document.getElementById("background-image-gif").style.backgroundImage = "url(static/images/georgeparents.jpg)") {
-    console.log("HEY 2")
-    document.getElementById("background-image-gif").style.backgroundImage = "url(https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif)";
-
-    } else if (document.getElementById("background-image-gif").style.backgroundImage = "url(https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif)") {
-    console.log("HEY 3")
-    document.getElementById("#background-image-gif").style.backgroundImage = "url(static/images/georgeparents.jpg)";
+    } else if (document.getElementById("background-image-gif").style.backgroundImage == "url(\"https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif\")") {
+        document.getElementById("background-image-gif").style.backgroundImage = "url(\"static/images/georgeparents.jpg\")";
     }
-
-    console.log("HEY 4")
-
 };
-
-// const daysLeftBtn = document.querySelector('#festivus-btn');
-
-// daysLeftBtn.addEventListener('click', myFunction);
-
 </script>
 
-
 {% endblock %}
-    <!-- const changeBackgroundGif = () => {
-
-        if (document.getElementById('#background-image-gif').url === 'static/images/georgeparents.jpg') {
-            document.getElementById('#background-image-gif').url === 'https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif';
-
-        } else if (document.getElementById('#background-image-gif').url === 'https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif') {
-            document.getElementById('#background-image-gif').url === 'static/images/georgeparents.jpg';
-
-        }
-    };
-
-    const daysLeftButton = document.querySelector('#festivus-btn');
-
-    daysLeftButton.addEventListener('click', changeBackgroundGif);
-</script> -->
-
-<!-- 
-https://i.pinimg.com/originals/04/6c/e0/046ce0f1531fc6f80932bb7f5366ea57.gif
-
-        <div class="bg-image d-flex justify-content-center align-items-center" 
-        id="background-image-gif" 
-        style="
-            background-image: url('static/images/georgeparents.jpg');
-            height: 75vh; 
-            background-size: cover;">
-    <div class="countdown">
-        <h2 id="festivus-countdown">Festivus is December 23rd 2021!</h2>
-        <p>Only<span id="days-left"> {{  days_left  }}</span> days until it's here <em>– mark your calendar.</em></p>
-    </div>
-    

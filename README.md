@@ -4,9 +4,9 @@
 
 The Ultimate Seinfeld Experience is a fan site where visitors can chat with different character bots, access a live countdown to the shows' holiday 'Festivus', view recent Tweets from some of the actors, and search for restaurants nearby according to food categories referenced on the program.
 
-### Technologies required (besides typical Hackbright tech stack)
+### Technologies required
 
-- Twitter API, Yelp API, Google Maps API, Tweepy, Arrow, Bootstrap
+- Twitter API, Yelp API, Google Maps API, Tweepy, Arrow, Bootstrap, Flask, Jinja, PostgreSQL, JQuery
 
 ### Data
 
