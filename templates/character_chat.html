@@ -24,13 +24,13 @@
                 a bot response-->
                         <!-- user_messages session holds "None" in session upon load, making len=1-->
                         {% for i in range(user_messages|length) %}
-                        {% if user_messages[i+1] %}<p id="user-line"><span id="user-name-style">{{ user_name
-                                }}:
+                        {% if user_messages[i+1] %}<p id="user-line"><span id="user-name-style">{{ user_name }}:
+                                
                             </span><span class="message-font">{{ user_messages[i+1] }}</span></p><br>
-                        {% if bot_responses[i] %}<p id="bot-line"><span id="bot-name-style">{{ bot_name }}:
-                            </span><span class="message-font">{{ bot_responses[i] }}</span></p><br>{% endif
-                        %}{%
-                        endif %}
+                        {% if bot_responses[i] %}<p id="bot-line"><span id="bot-name-style">{{ bot_name }}: 
+                            </span><span class="message-font"> {{ bot_responses[i] }}</span></p><br>{% endif %}
+                        {% endif %}
+                        
                         {% endfor %}
                     </div>
                     <div id="pick-char">
@@ -82,7 +82,7 @@
                     </form>
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><em>*To switch characters, end the conversation.</em></p>
+                            <p><em>* To switch characters, end the conversation.</em></p>
                         </div>
                         <div class="col-sm-12">
                             <form action="/clear" method="GET">

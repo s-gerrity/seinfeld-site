@@ -6,6 +6,7 @@ body {
   
 html body {
   background-color: #c0d6df;
+  letter-spacing: -.03em;
 }
 
 
@@ -113,21 +114,18 @@ color: #dd6e42;
 
 .accordion .accordion-header {
   background: transparent !important;
-  /* border: blue !important; */
   padding: 0;
   margin: 20px !important;
 }
 
 .accordion-button {
 background-color: transparent !important;
-/* border: purple !important; */
 font-size: .75em;
 font: italic;
 }
 
 .accordion-item {
 background-color: transparent !important;
-/* border: green; */
 border: 5px solid #4f6d7a !important;
 margin-bottom: 25px !important;
 }
@@ -226,6 +224,7 @@ margin-bottom: 25px !important;
     height: 400px;
     width: 100%;
     background-color: grey;
+    box-shadow: 0 2px 40px 0 rgb(0 0 0 / 30%);
 }
 
   @font-face {

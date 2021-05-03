@@ -15,12 +15,12 @@
 <div class="container">
     <div class="float-right">
         <div class="row"><!-- one giant row for the p, form, photo (and results) -->
-            <div class="col-sm-6"><!-- col for left side -->         
+            <div class="col-sm-5"><!-- col for left side -->         
                 <div class="page-description">
-                    <p>The show Seinfeld often uses food as a plot device. Sometimes the
+                    <p><em>The show Seinfeld often uses food as a plot device. Sometimes the
                         foods sound tasty, or maybe the show is the first time you're hearing
                         about this type of thing. Use the local search to see where cuisine
-                        and items mentioned on the show are available near you.</p>
+                        and items mentioned on the show are available near you.</em></p>
                     <h2>Dine like the characters!</h2>
                     <br>
                 </div><!-- end page description -->
@@ -45,17 +45,18 @@
                     </div>
                 </div> <!-- end left side row -->
             </div><!-- end col for pd left side -->
-            <div class="col-sm-6">
+            <div class="col-sm-7">
                 <div class="food-results">
                     {% if zip_code_search %}
 
                     <h2>Places: </h2>
 
                     {% for key, value in dict_of_businesses.items() %}
-                    <p>{{ key[0] }}: {{ value[0] }} {{ value[1][0] }}, {{ value[1][1] }}</p>
+                    <p><strong>{{ key[0] }}:</strong> {{ value[0] }} {{ value[1][0] }}, {{ value[1][1] }}</p>
                     {% endfor %}
 
                     {% endif %}
+                    <br>
                 </div><!-- end div food results -->
                 <img src="static/images/jerry george diner.jpeg" id="diner-photo" style="width: 450px;">
             </div><!-- end col right side food results col -->
@@ -64,28 +65,28 @@
     <div id="map">
     </div><!-- map ends -->
 </div><!-- container ends -->
+
 {% if zip_code_search %}
+
 <script type="text/javascript">
     const latLng = {{ business_lat_lng | tojson }}
 </script>
+
 {% endif %}
+
 <script type="text/javascript" src="static/js/sein_maps.js">
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu0K1tl63X34gNx4rehOAPA6QfJWNrLjk&callback=initMap">
-    </script>
-
+</script>
 
 <script type="text/javascript">
 
 var url = window.location.href;
-console.log("HELLO", url)
-// function removeImage() {
-//     console.log("HELLO")
 if (url.includes("zip-code")) {
-    console.log("ALOHA")
+
     document.getElementById("diner-photo").style.display = "none";
-    // }
 };
 </script>
+
 {% endblock %}
