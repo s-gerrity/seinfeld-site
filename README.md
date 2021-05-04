@@ -10,24 +10,27 @@ The Ultimate Seinfeld Experience is a fan site where visitors can chat with diff
 
 ### Data
 
-- Bot character options, food categories for local restaurant search, and quotes for bot responses
-
-### Roadmap
+- Bot character options, food categories for local restaurant search, and quotes for bot responses.
 
 #### MVP
 
 - Visitors choose from 4 characters to chat with. Give input and receive a response (quote from the show).
+![Chat before message](file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/chat%20before.png)
+![Chat after message] (file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/chat%20after.png)
 
 - Festivus holiday countdown show days until the holiday. 
+![Festivus page] (file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/festivus.png)
 
 #### 2.0
 
 - 'Where are they now?' uses API to grab cast members’ latest 5 tweets. Uses Twitters embed format to duplicate tweet design.
+![Tweets before] (file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/twitter%20before.png)
+![Tweets after] (file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/twitter%20after.png)
 
 #### 3.0
 
-- Local restaurant finder. Pop in your zip code to see a list of places that serve food mentioned on the show via Yelp API and displays with Google Maps API.
+- Local restaurant finder. Enter your zip code to see a list of places that serve food mentioned on the show via Yelp API and displays with Google Maps API.
+![Restaurant search before] (file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/food%20search%20before.png)
+![Restaurant search] (file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/food%20search%20after.png)
 
-### Notes
 
-Replace this with anything else about the project

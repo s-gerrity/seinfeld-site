@@ -34,35 +34,35 @@ def clear():
 def where_are_they_now():
     """Loads WATN page & tweets from Twitter API."""
 
-    # tweet_screen_name = {'Jerry': 'jerryseinfeld', 
-    #                     'Julia': 'officialjld', 
-    #                     'Jason': 'IJasonAlexander', 
-    #                     'Modern': 'modern_seinfeld'}
+    tweet_screen_name = {'Jerry': 'jerryseinfeld', 
+                        'Julia': 'officialjld', 
+                        'Jason': 'IJasonAlexander', 
+                        'Modern': 'modern_seinfeld'}
 
-    # jerry_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jerry')
-    # jerry_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Jerry')
+    jerry_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jerry')
+    jerry_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Jerry')
 
-    # julia_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Julia')
-    # julia_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Julia')
+    julia_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Julia')
+    julia_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Julia')
     
-    # jason_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jason')
-    # jason_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Jason')
+    jason_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Jason')
+    jason_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Jason')
 
-    # modern_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Modern')
-    # modern_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Modern')
+    modern_twitter_handle = sein_twit.get_twitter_handle(tweet_screen_name, 'Modern')
+    modern_tweet_ids = sein_twit.get_tweet_id(tweet_screen_name, 'Modern')
 
     return render_template('where-are-they-now.html',
-                            # jerry_twitter_handle=jerry_twitter_handle,
-                            # jerry_tweet_ids=jerry_tweet_ids,
+                            jerry_twitter_handle=jerry_twitter_handle,
+                            jerry_tweet_ids=jerry_tweet_ids,
 
-                            # julia_twitter_handle=julia_twitter_handle,
-                            # julia_tweet_ids=julia_tweet_ids,
+                            julia_twitter_handle=julia_twitter_handle,
+                            julia_tweet_ids=julia_tweet_ids,
 
-                            # jason_twitter_handle=jason_twitter_handle,
-                            # jason_tweet_ids=jason_tweet_ids,
+                            jason_twitter_handle=jason_twitter_handle,
+                            jason_tweet_ids=jason_tweet_ids,
                             
-                            # modern_twitter_handle=modern_twitter_handle,
-                            # modern_tweet_ids=modern_tweet_ids,
+                            modern_twitter_handle=modern_twitter_handle,
+                            modern_tweet_ids=modern_tweet_ids,
                             )
 
 
