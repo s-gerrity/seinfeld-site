@@ -15,7 +15,8 @@ The Ultimate Seinfeld Experience is a fan site where visitors can chat with diff
 #### MVP
 
 - Visitors choose from 4 characters to chat with. Give input and receive a response (quote from the show).
-![Chat before message](static/images/SEIN README images/chat before.png)
+Before active chat:
+<img src="file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/chat%20before.png" width="400">
 ![Chat after message](file:///Users/samanthagerrity/src/hb%20project%20-%20seinfeld/static/images/SEIN%20README%20images/chat%20after.png)
 
 - Festivus holiday countdown show days until the holiday. 
